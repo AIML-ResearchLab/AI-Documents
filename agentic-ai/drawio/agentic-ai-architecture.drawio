@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Agentic AI Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Input Layer -->
+        <mxCell id="input" value="Input Layer&#10;User / Events / Telemetry / API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="420" y="20" width="260" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Orchestrator -->
+        <mxCell id="orch" value="Orchestrator&#10;LangGraph State Machine&#10;Workflow Planner" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="420" y="100" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent Runtime -->
+        <mxCell id="runtime" value="Agent Runtime&#10;State Store&#10;Retries / Timeouts&#10;Budget Control&#10;Circuit Breaker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="420" y="200" width="260" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent Core -->
+        <mxCell id="agentcore" value="Agent Core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="260" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="planner" value="Planner" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="agentcore">
+          <mxGeometry x="20" y="20" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="reasoner" value="Reasoner" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="agentcore">
+          <mxGeometry x="20" y="80" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="action" value="Action Selector" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="agentcore">
+          <mxGeometry x="20" y="140" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Memory Layer -->
+        <mxCell id="memory" value="Memory Layer&#10;Vector DB (RAG)&#10;Knowledge Graph&#10;Short-term Context&#10;Long-term Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="500" y="320" width="260" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Tool Gateway -->
+        <mxCell id="toolgw" value="Tool Gateway / MCP&#10;Policy Enforcement&#10;Audit Logging&#10;Rate Limits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="800" y="320" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Tool Layer -->
+        <mxCell id="tools" value="Tool Layer&#10;APIs&#10;Cloud / K8s&#10;ITSM&#10;Databases&#10;File System&#10;Email&#10;Slack" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="800" y="460" width="260" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Guardrails -->
+        <mxCell id="guard" value="Guardrails&#10;Policies&#10;RBAC&#10;Approval Workflows&#10;Autonomy Tiers&#10;Budget Limits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="320" width="260" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Observability -->
+        <mxCell id="obs" value="Observability&#10;Metrics&#10;Logs&#10;Traces&#10;Cost Tracking&#10;Evaluation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5fe;" vertex="1" parent="1">
+          <mxGeometry x="420" y="540" width="260" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e1" style="endArrow=block;" edge="1" parent="1" source="input" target="orch"/>
+        <mxCell id="e2" style="endArrow=block;" edge="1" parent="1" source="orch" target="runtime"/>
+        <mxCell id="e3" style="endArrow=block;" edge="1" parent="1" source="runtime" target="agentcore"/>
+        <mxCell id="e4" style="endArrow=block;" edge="1" parent="1" source="agentcore" target="memory"/>
+        <mxCell id="e5" style="endArrow=block;" edge="1" parent="1" source="agentcore" target="toolgw"/>
+        <mxCell id="e6" style="endArrow=block;" edge="1" parent="1" source="toolgw" target="tools"/>
+        <mxCell id="e7" style="endArrow=block;" edge="1" parent="1" source="toolgw" target="guard"/>
+        <mxCell id="e8" style="endArrow=block;" edge="1" parent="1" source="runtime" target="obs"/>
+        <mxCell id="e9" style="endArrow=block;" edge="1" parent="1" source="agentcore" target="obs"/>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
