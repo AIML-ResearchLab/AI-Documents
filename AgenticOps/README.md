@@ -188,6 +188,59 @@ That visibility = **Agent Observability**
 [4]: https://github.com/Giskard-AI/giskard-oss?utm_source=chatgpt.com "Giskard-AI/giskard-oss: 🐢 Open-Source Evaluation & ..."
 
 
+# Below is a complete open-source debugging & observability stack comparison for:
+
+- **LangGraph**
+- **CrewAI**
+- **AutoGen**
+- **Google ADK (Agent Development Kit)**
+
+
+## 🔎 1️⃣ Tracing & Reasoning Debug (Open Source)
+
+| Framework                        | Native Debug Tools        | External OSS Tools                   | What You Can Debug                                              | Best Practice Setup                |
+| -------------------------------- | ------------------------- | ------------------------------------ | --------------------------------------------------------------- | ---------------------------------- |
+| **LangGraph**                    | LangChain callbacks       | Langfuse, Arize Phoenix, OpenLLMetry | Node-level state transitions, agent reasoning steps, tool calls | LangGraph + OpenLLMetry + Langfuse |
+| **CrewAI**                       | Verbose execution logs    | Langfuse, Phoenix, OpenLLMetry       | Role-based reasoning, delegation steps                          | CrewAI + OpenLLMetry               |
+| **AutoGen**                      | Conversation history logs | Langfuse, Phoenix                    | Agent-to-agent conversations                                    | AutoGen + Langfuse                 |
+| **Google Agent Development Kit** | Structured execution logs | OpenTelemetry stack                  | Tool invocation + execution traces                              | ADK + OTEL + Jaeger                |
+
+
+## 📡 2️⃣ OpenTelemetry + Distributed Tracing Stack
+
+| Component           | Tool          | Role in Debugging                     |
+| ------------------- | ------------- | ------------------------------------- |
+| Telemetry Standard  | OpenTelemetry | Captures spans (LLM, tool, vector DB) |
+| LLM Instrumentation | OpenLLMetry   | Auto-instruments LLM + frameworks     |
+| Trace Backend       | Jaeger        | Visual trace of agent steps           |
+| Trace Backend       | Grafana Tempo | Scalable OTEL storage                 |
+| Visualization       | Grafana       | Dashboards for agent metrics          |
+
+
+## 🧠 3️⃣ Evaluation & Reasoning Validation (Open Source)
+
+| Tool      | What It Evaluates                 | Works With         |
+| --------- | --------------------------------- | ------------------ |
+| TruLens   | Reasoning quality, hallucinations | All                |
+| Ragas     | Retrieval quality                 | LangGraph / CrewAI |
+| DeepEval  | Unit test agents                  | All                |
+| promptfoo | Regression testing                | All                |
+| Giskard   | Security & robustness             | All                |
+
+
+## 🏗 5️⃣ Recommended Open-Source Stack Per Framework
+
+| Framework  | Minimal OSS Stack      | Enterprise OSS Stack                     |
+| ---------- | ---------------------- | ---------------------------------------- |
+| LangGraph  | OpenLLMetry + Jaeger   | OpenLLMetry + Langfuse + Tempo + Grafana |
+| CrewAI     | OpenLLMetry            | OpenLLMetry + Langfuse                   |
+| AutoGen    | Langfuse               | Langfuse + TruLens                       |
+| Google ADK | OpenTelemetry + Jaeger | OTEL + Tempo + Grafana                   |
+
+# Architecture diagram
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c1474003-1f8e-4924-997c-480b6568ce01" />
+
 
 
 
