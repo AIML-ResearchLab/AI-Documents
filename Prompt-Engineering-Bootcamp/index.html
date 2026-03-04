@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prompt Engineering Documentation Index</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #0f766e;
+      --line: #dbe5ef;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #e2e8f0 0%, #f8fafc 45%, #ecfeff 100%);
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 16px 28px;
+    }
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
+    }
+    h1 { margin: 0 0 6px; }
+    .muted { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    @media (min-width: 880px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover { text-decoration: underline; }
+    ul { margin: 8px 0 0; padding-left: 18px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Prompt Engineering Documentation</h1>
+      <p class="muted">Complete indexed handbook covering fundamentals to production operations.</p>
+      <p><a href="INDEX.md">Open INDEX.md</a></p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Core Chapters</h2>
+        <ul>
+          <li><a href="01-Foundations.md">01 - Foundations</a></li>
+          <li><a href="02-Model-Behavior-and-Parameters.md">02 - Model Behavior and Parameters</a></li>
+          <li><a href="03-Prompt-Design-Principles.md">03 - Prompt Design Principles</a></li>
+          <li><a href="04-Prompting-Techniques.md">04 - Prompting Techniques</a></li>
+          <li><a href="05-Context-Engineering-and-RAG.md">05 - Context Engineering and RAG</a></li>
+          <li><a href="06-Structured-Outputs-Tools-and-Agents.md">06 - Structured Outputs, Tools, and Agents</a></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Production Chapters</h2>
+        <ul>
+          <li><a href="07-Evaluation-and-Experimentation.md">07 - Evaluation and Experimentation</a></li>
+          <li><a href="08-Safety-Security-and-Compliance.md">08 - Safety, Security, and Compliance</a></li>
+          <li><a href="09-Production-Deployment-and-Operations.md">09 - Production Deployment and Operations</a></li>
+          <li><a href="10-Use-Case-Playbooks.md">10 - Use Case Playbooks</a></li>
+          <li><a href="11-Labs-and-Real-Time-Examples.md">11 - Labs and Real-Time Examples</a></li>
+          <li><a href="12-Glossary-Templates-and-Checklists.md">12 - Glossary, Templates, and Checklists</a></li>
+        </ul>
+      </article>
+    </section>
+  </div>
+</body>
+</html>
