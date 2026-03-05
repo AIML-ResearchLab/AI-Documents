@@ -1,0 +1,39 @@
+:root {
+  --ai-gradient-1: #00bcd4;
+  --ai-gradient-2: #26a69a;
+  --ai-gradient-3: #ff7043;
+}
+
+.md-header {
+  background: linear-gradient(120deg, var(--ai-gradient-1), var(--ai-gradient-2));
+}
+
+.md-tabs {
+  background: linear-gradient(120deg, #007c91, #00897b);
+}
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border: 1px solid rgba(0, 188, 212, 0.25);
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+.md-typeset a {
+  text-decoration-thickness: 2px;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background: linear-gradient(120deg, #006064, #004d40);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background: linear-gradient(120deg, #004d40, #1b5e20);
+}

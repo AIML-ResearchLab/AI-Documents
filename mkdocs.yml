@@ -1,0 +1,145 @@
+site_name: AI-Documents
+site_description: Comprehensive AI, Agentic AI, MLOps, and LLMOps learning hub.
+site_author: AIML Research Lab
+site_url: https://aiml-researchlab.github.io/AI-Documents/
+repo_url: https://github.com/AIML-ResearchLab/AI-Documents
+repo_name: AIML-ResearchLab/AI-Documents
+edit_uri: edit/master/
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+strict: false
+
+exclude_docs: |
+  .DS_Store
+  Thumbs.db
+
+watch:
+  - stylesheets/extra.css
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+# Keep nav undefined so MkDocs includes all markdown files automatically.
+
+theme:
+  name: material
+  language: en
+  font:
+    text: Space Grotesk
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: cyan
+      accent: lime
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.footnote.tooltips
+    - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - toc.integrate
+
+plugins:
+  - search:
+      separator: '[\\s\\-]+'
+  - git-revision-date-localized:
+      type: timeago
+      locale: en
+      enable_creation_date: true
+      fallback_to_build_date: true
+      strict: false
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: AIML-ResearchLab
+      repo: AI-Documents
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  generator: false
+  homepage: https://aiml-researchlab.github.io/AI-Documents/
+  announcement: "AI-Documents is actively updated with new modules and tracks."
+  status:
+    new: Recently added
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AIML-ResearchLab/AI-Documents
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright (c) AI-Documents

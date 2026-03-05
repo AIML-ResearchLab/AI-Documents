@@ -1,0 +1,60 @@
+# policy.yaml (declarative RBAC + policy)
+
+version: "1.0"
+
+rbac:
+  roles:
+    sre:
+      allow_tools:
+        - metrics_query
+        - logs_query
+        - traces_query
+        - topology_query
+        - deploy_history
+        - k8s_restart
+        - k8s_scale
+        - k8s_rollback
+        - traffic_shift
+        - itsm_update
+    noc:
+      allow_tools:
+        - metrics_query
+        - logs_query
+        - traces_query
+        - topology_query
+        - deploy_history
+        - itsm_update
+
+autonomy:
+  tiers:
+    AUTO:
+      deny_risk: ["HIGH"]
+      require_confidence_gte: 0.60
+      max_blast_radius: "SERVICE"   # SERVICE or NAMESPACE or CLUSTER
+    HITL:
+      deny_risk: []
+      require_confidence_gte: 0.40
+      max_blast_radius: "NAMESPACE"
+
+policy_rules:
+  - id: "NAMESPACE_GUARD"
+    type: "param_constraint"
+    when:
+      tool_prefix: "k8s_"
+    constraints:
+      namespace_in: ["prod"]
+
+  - id: "SCALE_LIMIT_AUTO"
+    type: "param_constraint"
+    when:
+      tool: "k8s_scale"
+      autonomy_tier: "AUTO"
+    constraints:
+      replicas_lte: 10
+
+  - id: "ROLLBACK_REQUIRES_RECENT_DEPLOY"
+    type: "precondition"
+    when:
+      tool: "k8s_rollback"
+    constraints:
+      require_recent_deploy_minutes_lte: 120

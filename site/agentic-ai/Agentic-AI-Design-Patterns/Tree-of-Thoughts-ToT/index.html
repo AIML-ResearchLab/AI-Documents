@@ -1,0 +1,3380 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive AI, Agentic AI, MLOps, and LLMOps learning hub.">
+      
+      
+      
+        <link rel="canonical" href="https://aiml-researchlab.github.io/AI-Documents/agentic-ai/Agentic-AI-Design-Patterns/Tree-of-Thoughts-ToT/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Tree of Thoughts (ToT) - AI-Documents</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tree-of-thoughts-tot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AI-Documents" class="md-header__button md-logo" aria-label="AI-Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI-Documents
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tree of Thoughts (ToT)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIML-ResearchLab/AI-Documents" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIML-ResearchLab/AI-Documents
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Prompt-Engineering-Bootcamp/INDEX/" class="md-tabs__link">
+          
+  
+  
+  Core AI Tracks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../RAG/INDEX/" class="md-tabs__link">
+          
+  
+  
+  Retrieval, Protocols, and Databases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Agentic-AI-Frameworks/LangChain/INDEX/" class="md-tabs__link">
+          
+  
+  
+  Agentic AI Frameworks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MLOps/INDEX/" class="md-tabs__link">
+          
+  
+  
+  Ops Platforms
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AI-Documents" class="md-nav__button md-logo" aria-label="AI-Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI-Documents
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIML-ResearchLab/AI-Documents" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIML-ResearchLab/AI-Documents
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core AI Tracks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core AI Tracks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prompt-Engineering-Bootcamp/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Programming-Essentials-AI-Python/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Essentials (Python)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Statistical-Foundations-AI/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Data-Processing-AI/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linear-Algebra-AI/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Machine-Learning-AI/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deep-Learning-AI/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer-Vision/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Natural-Language-Processing/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Language Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Speech-Analytics/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Speech Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reinforcement-Learning/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fuzzy-Systems-Probabilistic-Programming-Optimization/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzzy/Probabilistic/Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Production-maintenance-AI-system/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production & Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Big-Data-Analytics/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Big Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Generative-AI/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retrieval, Protocols, and Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Retrieval, Protocols, and Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RAG/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCP/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../A2A/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Vector-DB/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Graph-DB/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic AI Frameworks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentic AI Frameworks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/LangChain/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LangChain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/LangGraph/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LangGraph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/LlamaIndex/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LlamaIndex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/CrewAI/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CrewAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/AutoGen/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoGen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/Semantic-Kernel/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Kernel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/Google-ADK/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google ADK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/Design-Patterns/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Agentic-AI-Frameworks/Layers/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Architecture Layers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ops Platforms
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ops Platforms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLOps/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MLOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LLMOps/INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLMOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-to-end-tot-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔁 End-to-End ToT Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-strategy-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Search Strategy Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tot-vs-cot-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 ToT vs CoT (Context)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-tot-fits-in-agent-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 Where ToT Fits in Agent Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tree-of-thoughts-tot">Tree of Thoughts (ToT)<a class="headerlink" href="#tree-of-thoughts-tot" title="Permanent link">&para;</a></h1>
+<p><strong>Tree of Thoughts</strong> is a prompting framework for LLMs that generalizes chain-of-thought reasoning by enabling <strong>exploration of multiple reasoning paths</strong> simultaneously, rather than following a single linear chain.</p>
+<p><strong>Core Idea</strong>
+Instead of generating one answer step-by-step, ToT models the problem-solving process as a tree:</p>
+<ul>
+<li><strong>Nodes</strong> = intermediate "thoughts" (partial solutions, reasoning steps)</li>
+<li><strong>Branches</strong> = different continuations from each thought</li>
+<li><strong>Search</strong> = traversal strategy to find the best path to a solution</li>
+</ul>
+<h2 id="key-components">Key Components<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>What Happens</th>
+<th>Input</th>
+<th>Output</th>
+<th>Used By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thought decomposition</td>
+<td>Break problem into intermediate reasoning steps</td>
+<td>Convert goal → sub-goals → states</td>
+<td>Goal / problem</td>
+<td>Initial thought nodes</td>
+<td>Planner agent</td>
+</tr>
+<tr>
+<td>Thought generation</td>
+<td>Generate multiple candidate thoughts per step</td>
+<td>Sample k reasoning paths (k-branching)</td>
+<td>Current state</td>
+<td>Candidate thoughts</td>
+<td>Reasoner</td>
+</tr>
+<tr>
+<td>State evaluation</td>
+<td>Score/rank candidate thoughts</td>
+<td>Use LLM or heuristics to assign value</td>
+<td>Thought candidates</td>
+<td>Ranked thoughts with scores</td>
+<td>Evaluator</td>
+</tr>
+<tr>
+<td>Search algorithm</td>
+<td>Explore thought tree</td>
+<td>BFS, DFS, beam search over states</td>
+<td>Scored thoughts</td>
+<td>Best path / solution</td>
+<td>Orchestrator</td>
+</tr>
+<tr>
+<td>Pruning</td>
+<td>Remove low-quality branches</td>
+<td>Keep top-N or above threshold</td>
+<td>Ranked thoughts</td>
+<td>Reduced search space</td>
+<td>Optimizer</td>
+</tr>
+<tr>
+<td>Backtracking</td>
+<td>Return to previous state if path fails</td>
+<td>Try alternate branch</td>
+<td>Failed state</td>
+<td>Next best candidate</td>
+<td>Search controller</td>
+</tr>
+<tr>
+<td>Stopping criteria</td>
+<td>Decide when to stop search</td>
+<td>Goal met / depth reached / score threshold</td>
+<td>Current best state</td>
+<td>Final solution path</td>
+<td>Controller</td>
+</tr>
+<tr>
+<td>Memory of explored states</td>
+<td>Avoid revisiting same thoughts</td>
+<td>Cache visited states</td>
+<td>Thought state</td>
+<td>Deduplicated graph</td>
+<td>State manager</td>
+</tr>
+<tr>
+<td>Tool integration</td>
+<td>Execute actions at selected nodes</td>
+<td>Call APIs/tools for verification</td>
+<td>Selected thought</td>
+<td>Tool result → new state</td>
+<td>Executor</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Check correctness of final path</td>
+<td>Post-condition checks</td>
+<td>Final thought path</td>
+<td>Approved / rejected</td>
+<td>Validator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="end-to-end-tot-flow">🔁 End-to-End ToT Flow<a class="headerlink" href="#end-to-end-tot-flow" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Decompose</td>
+<td>Goal → sub-problems</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Generate</td>
+<td>Create multiple reasoning candidates</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Evaluate</td>
+<td>Score each candidate</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Search</td>
+<td>Explore using BFS / DFS / Beam</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Prune</td>
+<td>Keep top-K paths</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Execute (optional)</td>
+<td>Call tools to verify state</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Validate</td>
+<td>Check final correctness</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Return best path</td>
+<td>Output optimal reasoning chain</td>
+</tr>
+</tbody>
+</table>
+<h2 id="search-strategy-comparison">🔍 Search Strategy Comparison<a class="headerlink" href="#search-strategy-comparison" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Behavior</th>
+<th>Pros</th>
+<th>Cons</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BFS</td>
+<td>Level-by-level exploration</td>
+<td>Finds shortest path</td>
+<td>High memory</td>
+<td>Small depth problems</td>
+</tr>
+<tr>
+<td>DFS</td>
+<td>Deep path first</td>
+<td>Low memory</td>
+<td>Can miss optimal</td>
+<td>Large search depth</td>
+</tr>
+<tr>
+<td>Beam Search</td>
+<td>Top-K per level</td>
+<td>Efficient + high quality</td>
+<td>Needs scoring</td>
+<td>Most agent workflows</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tot-vs-cot-context">🧠 ToT vs CoT (Context)<a class="headerlink" href="#tot-vs-cot-context" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>CoT</th>
+<th>ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paths</td>
+<td>Single</td>
+<td>Multiple</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>None</td>
+<td>BFS/DFS/Beam</td>
+</tr>
+<tr>
+<td>Backtracking</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Optimal reasoning</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Low</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Linear workflows</td>
+<td>Complex planning &amp; decision trees</td>
+</tr>
+</tbody>
+</table>
+<h2 id="where-tot-fits-in-agent-architecture">🧱 Where ToT Fits in Agent Architecture<a class="headerlink" href="#where-tot-fits-in-agent-architecture" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>ToT Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planner</td>
+<td>Thought decomposition</td>
+</tr>
+<tr>
+<td>Reasoner</td>
+<td>Thought generation</td>
+</tr>
+<tr>
+<td>Evaluator</td>
+<td>State scoring</td>
+</tr>
+<tr>
+<td>Orchestrator</td>
+<td>Search algorithm</td>
+</tr>
+<tr>
+<td>Executor</td>
+<td>Tool calls at nodes</td>
+</tr>
+<tr>
+<td>Validator</td>
+<td>Final path verification</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Problem
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── Thought A
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── Thought A1 ✓ → Solution
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   └── Thought A2 ✗ (dead end)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── Thought B
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   ├── Thought B1 ✓ → ...
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   └── Thought B2 ✓ → Solution ★
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── Thought C ✗ (pruned early)
+</code></pre></div>
+<p>The model generates thoughts, <strong>evaluates</strong> their promise ("sure / maybe / impossible"), and <strong>backtracks</strong> when paths look unproductive.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Reasoning Path</th>
+<th>Backtracking</th>
+<th>Key Idea</th>
+<th>Strengths</th>
+<th>Limitations</th>
+<th>Best Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standard Prompting</strong></td>
+<td>Single step (direct answer)</td>
+<td>✗ No</td>
+<td>Model outputs final answer without intermediate reasoning</td>
+<td>Fast, low cost, simple tasks</td>
+<td>Poor at complex logic, no error correction</td>
+<td>FAQs, classification, simple extraction</td>
+</tr>
+<tr>
+<td><strong>Chain-of-Thought (CoT)</strong></td>
+<td>Single linear chain</td>
+<td>✗ No</td>
+<td>Step-by-step reasoning in one path</td>
+<td>Better for math, logic, multi-step problems</td>
+<td>If early step is wrong, whole chain fails</td>
+<td>Math, coding logic, structured reasoning</td>
+</tr>
+<tr>
+<td><strong>Self-Consistency</strong></td>
+<td>Multiple independent CoT chains → majority vote</td>
+<td>✗ No (no path correction, only voting)</td>
+<td>Generate many reasoning paths and pick most common answer</td>
+<td>Improves accuracy, reduces random errors</td>
+<td>Higher cost, still no true backtracking</td>
+<td>Competitive exams, reasoning QA, symbolic tasks</td>
+</tr>
+<tr>
+<td><strong>Tree of Thoughts (ToT)</strong></td>
+<td>Tree of branching reasoning paths</td>
+<td>✓ Yes</td>
+<td>Explore multiple paths, evaluate, prune, and backtrack</td>
+<td>Handles complex planning, search, strategy</td>
+<td>Slow, expensive, requires scoring function</td>
+<td>Planning agents, game solving, multi-step decision making</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quick Insight</strong></p>
+<ul>
+<li><strong>CoT</strong> → Linear thinking</li>
+<li><strong>Self-consistency</strong> → Parallel linear thinking + voting</li>
+<li><strong>ToT</strong> → Search-based reasoning with backtracking (closest to human problem solving)</li>
+</ul>
+<h1 id="when-to-use-tree-of-thoughts-tot">When to Use Tree of Thoughts (ToT)<a class="headerlink" href="#when-to-use-tree-of-thoughts-tot" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Why ToT is Needed</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complex planning problems</strong></td>
+<td>Need to explore multiple possible action sequences before choosing best</td>
+<td>Multi-step incident remediation plan</td>
+</tr>
+<tr>
+<td><strong>Search space problems</strong></td>
+<td>Many possible paths → must branch and prune</td>
+<td>Puzzle solving, route optimization</td>
+</tr>
+<tr>
+<td><strong>Strategic decision making</strong></td>
+<td>Decisions depend on future consequences</td>
+<td>Cloud cost optimization with trade-offs</td>
+</tr>
+<tr>
+<td><strong>What-if simulations</strong></td>
+<td>Evaluate multiple hypothetical scenarios</td>
+<td>“If node fails → failover options → impact”</td>
+</tr>
+<tr>
+<td><strong>Multi-step tool orchestration</strong></td>
+<td>Different tool orders give different outcomes</td>
+<td>Refund → fraud check → policy check order</td>
+</tr>
+<tr>
+<td><strong>Game playing / adversarial logic</strong></td>
+<td>Need to simulate opponent moves</td>
+<td>Chess-like reasoning, security attack paths</td>
+</tr>
+<tr>
+<td><strong>Optimization with constraints</strong></td>
+<td>Need to compare alternatives against policies</td>
+<td>Budget vs performance vs SLA</td>
+</tr>
+<tr>
+<td><strong>Root cause analysis (RCA)</strong></td>
+<td>Multiple possible causes → test &amp; eliminate</td>
+<td>Network vs DB vs App latency source</td>
+</tr>
+<tr>
+<td><strong>Workflow synthesis</strong></td>
+<td>Generate and evaluate multiple workflows</td>
+<td>CI/CD pipeline design options</td>
+</tr>
+<tr>
+<td><strong>Decision trees with scoring</strong></td>
+<td>Need scoring function to pick best branch</td>
+<td>Risk-based auto-remediation path selection</td>
+</tr>
+</tbody>
+</table>
+<h1 id="when-not-to-use-tot">When NOT to Use ToT<a class="headerlink" href="#when-not-to-use-tot" title="Permanent link">&para;</a></h1>
+<p>Use simpler methods if:</p>
+<table>
+<thead>
+<tr>
+<th>Use CoT Instead</th>
+<th>Use Standard Prompting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear math/logical steps</td>
+<td>Simple Q&amp;A</td>
+</tr>
+<tr>
+<td>Single correct path</td>
+<td>Classification</td>
+</tr>
+<tr>
+<td>Low-cost requirements</td>
+<td>Extraction tasks</td>
+</tr>
+<tr>
+<td>No need to compare alternatives</td>
+<td>Summarization</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ToT vs CoT Quick Rule</strong></p>
+<p>Use <strong>ToT</strong> when the problem asks:</p>
+<ul>
+<li>“What are the possible options?”</li>
+<li>“Which plan is best?”</li>
+<li>“Simulate outcomes”</li>
+<li>“Evaluate trade-offs”</li>
+<li>“Find optimal path”</li>
+</ul>
+<p>Use <strong>CoT</strong> when:</p>
+<ul>
+<li>There is <strong>one logical path</strong></li>
+<li>Steps are <strong>deterministic</strong></li>
+</ul>
+<h1 id="agentic-ai-mapping">Agentic AI Mapping<a class="headerlink" href="#agentic-ai-mapping" title="Permanent link">&para;</a></h1>
+<p>A mental map of how the key concepts fit together.</p>
+<h2 id="the-core-stack">The Core Stack<a class="headerlink" href="#the-core-stack" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Goal
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> └── Agent (perceive → plan → act → observe → repeat)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>      ├── Reasoning Layer     ← CoT, ToT, ReAct
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      ├── Memory Layer        ← context, vector DB, cache
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      ├── Tool Layer          ← search, code, APIs
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      └── Orchestration       ← single vs. multi-agent
+</code></pre></div>
+<h2 id="reasoning-strategies-the-thinking-layer">Reasoning Strategies (the "thinking" layer)<a class="headerlink" href="#reasoning-strategies-the-thinking-layer" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Core Style</th>
+<th>Reasoning Pattern</th>
+<th>Strengths</th>
+<th>Limitations</th>
+<th>Best For</th>
+<th>Agent Role Fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CoT</strong> (Chain-of-Thought)</td>
+<td>Linear chain</td>
+<td>Step-by-step sequential thinking</td>
+<td>Simple, interpretable, low compute</td>
+<td>No backtracking, weak for exploration</td>
+<td>Deterministic multi-step logic, math, workflows</td>
+<td>Planner, Validator</td>
+</tr>
+<tr>
+<td><strong>ToT</strong> (Tree-of-Thought)</td>
+<td>Tree search</td>
+<td>Multiple branches → evaluate → select best path</td>
+<td>Handles ambiguity, explores alternatives</td>
+<td>Higher latency &amp; cost</td>
+<td>High-stakes planning, strategy, what-if simulation</td>
+<td>Planner</td>
+</tr>
+<tr>
+<td><strong>ReAct</strong> (Reason + Act)</td>
+<td>Interleaved reasoning + tool calls</td>
+<td>Think → call tool → observe → continue</td>
+<td>Great for tool orchestration, dynamic tasks</td>
+<td>Can loop if not bounded</td>
+<td>Tool-using agents, APIs, RAG, environment interaction</td>
+<td>Executor</td>
+</tr>
+<tr>
+<td><strong>Reflexion</strong></td>
+<td>Act → Critique → Retry loop</td>
+<td>Self-evaluation with memory</td>
+<td>Improves accuracy over iterations</td>
+<td>Needs scoring/feedback signal</td>
+<td>Self-healing agents, code improvement, RCA</td>
+<td>Validator, Remediator</td>
+</tr>
+<tr>
+<td><strong>LATS</strong> (ToT + ReAct + Reflexion)</td>
+<td>Hybrid autonomous search</td>
+<td>Tree exploration + tool use + self-critique</td>
+<td>Most powerful, adaptive, autonomous</td>
+<td>Complex orchestration, highest cost</td>
+<td>Full autonomous agents, long-horizon tasks</td>
+<td>Planner + Executor + Validator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agentic-mapping-control-plane-view">Agentic Mapping (Control Plane View)<a class="headerlink" href="#agentic-mapping-control-plane-view" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Agent Type</th>
+<th>Preferred Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planner Agent</td>
+<td>CoT → ToT → LATS (based on complexity)</td>
+</tr>
+<tr>
+<td>Execution Agent</td>
+<td>ReAct</td>
+</tr>
+<tr>
+<td>Validator Agent</td>
+<td>CoT + Reflexion</td>
+</tr>
+<tr>
+<td>Remediation Agent</td>
+<td>ReAct + Reflexion</td>
+</tr>
+<tr>
+<td>Autonomous Orchestrator</td>
+<td>LATS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-decision-guide">Quick Decision Guide<a class="headerlink" href="#quick-decision-guide" title="Permanent link">&para;</a></h2>
+<p>If your problem is…</p>
+<table>
+<thead>
+<tr>
+<th>If your problem is…</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Straightforward multi-step</td>
+<td><strong>CoT</strong></td>
+</tr>
+<tr>
+<td>Exploratory planning with alternatives</td>
+<td><strong>ToT</strong></td>
+</tr>
+<tr>
+<td>Tool/API driven workflows</td>
+<td><strong>ReAct</strong></td>
+</tr>
+<tr>
+<td>Need self-correction &amp; learning loop</td>
+<td><strong>Reflexion</strong></td>
+</tr>
+<tr>
+<td>Autonomous long-horizon agent</td>
+<td><strong>LATS</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="memory-types">Memory Types<a class="headerlink" href="#memory-types" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Sensory  →  In-context window          (fast, limited, ephemeral)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Short     →  Conversation / scratchpad  (session-scoped)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Long      →  Vector DB / KV store       (persistent, retrievable)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Parametric → Model weights              (baked in, static)
+</code></pre></div>
+<h2 id="orchestration-patterns">Orchestration Patterns<a class="headerlink" href="#orchestration-patterns" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Single Agent          Multi-Agent (flat)       Multi-Agent (hierarchical)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> Agent → Tools         A1 ←→ A2 ←→ A3           Orchestrator
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                                                  ├── Agent A
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                                                  ├── Agent B
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>                                                  └── Agent C
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Structure</th>
+<th>Use When</th>
+<th>Task Characteristics</th>
+<th>Pros</th>
+<th>Cons</th>
+<th>Agent Topology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Single</strong></td>
+<td>One agent, one flow</td>
+<td>Task is self-contained</td>
+<td>No decomposition, minimal tools, short horizon</td>
+<td>Simple, low latency, low cost</td>
+<td>No scalability, no specialization</td>
+<td>1 Planner/Executor combo</td>
+</tr>
+<tr>
+<td><strong>Flat Multi-Agent</strong></td>
+<td>Multiple agents in parallel</td>
+<td>Subtasks are independent</td>
+<td>Can be split into parallel units, no dependencies</td>
+<td>Fast, scalable, high throughput</td>
+<td>Coordination overhead, result merging needed</td>
+<td>Planner → Parallel Executors → Aggregator</td>
+</tr>
+<tr>
+<td><strong>Hierarchical</strong></td>
+<td>Manager → sub-agents → workers</td>
+<td>Complex tasks with dependencies</td>
+<td>Requires decomposition, sequencing, validation</td>
+<td>Clear control, reusable skills, governance</td>
+<td>Higher latency, orchestration complexity</td>
+<td>Manager Planner → Specialist Agents → Validator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="failure-modes-map">Failure Modes Map<a class="headerlink" href="#failure-modes-map" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Failure Modes</th>
+<th>Symptoms</th>
+<th>Root Cause</th>
+<th>Mitigation</th>
+<th>Guardrails / Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reasoning</td>
+<td>Hallucination, incorrect plan, shallow logic</td>
+<td>Confident but wrong outputs, missing steps</td>
+<td>Weak decomposition, no verification</td>
+<td>ToT planning, self-consistency, step validation</td>
+<td>Validator agent, scoring rubric, structured CoT</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Context overflow, retrieval miss, stale knowledge</td>
+<td>Irrelevant context, missing facts</td>
+<td>Poor chunking, no re-ranking, large prompts</td>
+<td>Semantic chunking, hybrid RAG, re-ranker</td>
+<td>Context budget manager, freshness filters</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>Bad tool output, infinite loops, schema mismatch</td>
+<td>Repeated calls, malformed JSON, wrong actions</td>
+<td>No output validation, missing stop conditions</td>
+<td>Timeouts, retries with limits, schema validation</td>
+<td>Tool gateway, circuit breaker, idempotency keys</td>
+</tr>
+<tr>
+<td>Orchestration</td>
+<td>Agent conflict, task drift, deadlocks</td>
+<td>Duplicate work, stuck workflows</td>
+<td>No role clarity, shared state conflicts</td>
+<td>Clear role contracts, state machine control</td>
+<td>LangGraph DAG, task ownership, locks</td>
+</tr>
+<tr>
+<td>Trust / Safety</td>
+<td>Prompt injection, overreach, unsafe actions</td>
+<td>Data exfiltration, policy violations</td>
+<td>Untrusted inputs, excessive permissions</td>
+<td>Input sanitization, least-privilege tools</td>
+<td>RBAC, HITL approvals, policy engine</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-big-picture">The Big Picture<a class="headerlink" href="#the-big-picture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Complexity of task
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>        ▲
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        │                          ● LATS / Multi-Agent
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        │               ● ReAct + ToT
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        │     ● ReAct
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        │  ● CoT
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        └─────────────────────────────► Autonomy required
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       Low                            High
+</code></pre></div>
+<h1 id="use-case-ai-investment-research-agent">Use Case: AI Investment Research Agent<a class="headerlink" href="#use-case-ai-investment-research-agent" title="Permanent link">&para;</a></h1>
+<p><strong>Scenario:</strong> Given a stock ticker, the agent uses ToT to explore 3 research strategies (fundamental, technical, sentiment), evaluates each, expands the best one using real tools (web search, calculator), then produces a final recommendation.</p>
+<h2 id="what-this-does">What This Does<a class="headerlink" href="#what-this-does" title="Permanent link">&para;</a></h2>
+<p><strong>Use Case:</strong> AI Investment Research Agent for any stock ticker (e.g. NVDA)</p>
+<p><strong>What Makes This Genuinely ToT</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>L0: Analyze NVDA
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>     │
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>     ├─ L1: Fundamental Analysis ✅        ← generated + scored
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>     ├─ L1: Technical Analysis ⚠️
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>     └─ L1: Sentiment Analysis ❌ (pruned — never explored further)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>              │
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>              ├─ L2: Revenue Trends ✅      ← generated + scored AGAIN
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>              ├─ L2: Margin Analysis ✅
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>              └─ L2: Valuation ❌ (pruned)
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>                        │
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>                        ├─ L3: Use web_search → execute tool ★
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>                        └─ L3: Use pe_ratio_analyzer → execute tool ★
+</code></pre></div>
+<h2 id="key-design-points">Key Design Points<a class="headerlink" href="#key-design-points" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Fake ToT</th>
+<th>True ToT (this code)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Branching</td>
+<td>Once at start</td>
+<td>At every node, every level</td>
+</tr>
+<tr>
+<td>Evaluation</td>
+<td>Once</td>
+<td>At every level</td>
+</tr>
+<tr>
+<td>Backtracking</td>
+<td>✗</td>
+<td>✅ Automatic — pruned nodes never enter frontier</td>
+</tr>
+<tr>
+<td>Search algo</td>
+<td>None</td>
+<td>BFS + Beam Search</td>
+</tr>
+<tr>
+<td>Tree depth</td>
+<td>1 (flat)</td>
+<td>3 levels deep</td>
+</tr>
+<tr>
+<td>Context awareness</td>
+<td>None</td>
+<td>Each node knows its full path from root</td>
+</tr>
+<tr>
+<td>Tool calls</td>
+<td>Fixed 1 agent</td>
+<td>Only at leaf nodes of surviving paths</td>
+</tr>
+<tr>
+<td>API calls</td>
+<td>~3</td>
+<td>N × B^D across tree</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-code-patterns">Key Code Patterns<a class="headerlink" href="#key-code-patterns" title="Permanent link">&para;</a></h2>
+<p><strong>Backtracking</strong> — automatic via BFS frontier:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>survivors = [c for c in children if c.score != &quot;impossible&quot;]
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a># ❌ nodes simply never added to frontier → branch dies
+</code></pre></div>
+<p><strong>Context-aware generation</strong> — each node knows its ancestry:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>def path_from_root(self) -&gt; list[str]:  # walks parent pointers
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>def context_str(self) -&gt; str:           # formatted for prompt
+</code></pre></div>
+<p><strong>Beam search</strong> — controls explosion:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>selected = next_level_candidates[:BEAM_WIDTH]  # top 2 per level
+</code></pre></div>
+<h1 id="tree-of-thoughts-tot-use-cases">Tree of Thoughts (ToT) Use Cases<a class="headerlink" href="#tree-of-thoughts-tot-use-cases" title="Permanent link">&para;</a></h1>
+<h2 id="1-cloud-sre-devops">1️⃣ Cloud &amp; SRE / DevOps<a class="headerlink" href="#1-cloud-sre-devops" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto-remediation planning</td>
+<td>Multiple remediation paths → choose lowest risk</td>
+</tr>
+<tr>
+<td>Incident RCA</td>
+<td>Explore infra vs app vs network hypotheses</td>
+</tr>
+<tr>
+<td>Capacity optimization</td>
+<td>Compare scale up, scale out, rightsizing</td>
+</tr>
+<tr>
+<td>Failover strategy selection</td>
+<td>Evaluate cost vs RTO vs SLA impact</td>
+</tr>
+<tr>
+<td>Deployment rollback decision</td>
+<td>Simulate outcomes of rollback vs hotfix</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-finops-cost-optimization">2️⃣ FinOps / Cost Optimization<a class="headerlink" href="#2-finops-cost-optimization" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instance rightsizing strategy</td>
+<td>Many size combinations → score by cost/perf</td>
+</tr>
+<tr>
+<td>Reserved vs Savings Plans vs On-Demand</td>
+<td>Trade-off forecasting</td>
+</tr>
+<tr>
+<td>Multi-cloud placement</td>
+<td>Compare cost, latency, compliance</td>
+</tr>
+<tr>
+<td>Idle resource cleanup planning</td>
+<td>Risk vs savings analysis</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-security-risk">3️⃣ Security &amp; Risk<a class="headerlink" href="#3-security-risk" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack path analysis</td>
+<td>Branch on possible lateral movements</td>
+</tr>
+<tr>
+<td>Threat response planning</td>
+<td>Contain vs isolate vs patch vs monitor</td>
+</tr>
+<tr>
+<td>Policy conflict resolution</td>
+<td>Evaluate multiple enforcement options</td>
+</tr>
+<tr>
+<td>Zero-trust rollout strategy</td>
+<td>Phase sequencing with risk scoring</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-data-ai-systems">4️⃣ Data &amp; AI Systems<a class="headerlink" href="#4-data-ai-systems" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pipeline optimization</td>
+<td>Batch vs streaming vs hybrid paths</td>
+</tr>
+<tr>
+<td>Model selection</td>
+<td>Accuracy vs latency vs cost trade-off</td>
+</tr>
+<tr>
+<td>Feature selection strategy</td>
+<td>Explore feature subsets with scoring</td>
+</tr>
+<tr>
+<td>RAG retrieval strategy</td>
+<td>Hybrid search vs semantic vs KG paths</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-itsm-workflow-automation">5️⃣ ITSM &amp; Workflow Automation<a class="headerlink" href="#5-itsm-workflow-automation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ticket routing strategy</td>
+<td>Multiple assignment paths</td>
+</tr>
+<tr>
+<td>Change impact analysis</td>
+<td>Simulate blast radius scenarios</td>
+</tr>
+<tr>
+<td>Runbook generation</td>
+<td>Compare alternative workflows</td>
+</tr>
+<tr>
+<td>SLA breach mitigation</td>
+<td>Choose fastest recovery path</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-product-business-strategy">6️⃣ Product &amp; Business Strategy<a class="headerlink" href="#6-product-business-strategy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pricing strategy simulation</td>
+<td>Revenue vs churn vs adoption</td>
+</tr>
+<tr>
+<td>Market entry planning</td>
+<td>Region, segment, channel options</td>
+</tr>
+<tr>
+<td>Roadmap prioritization</td>
+<td>Impact vs effort vs risk scoring</td>
+</tr>
+<tr>
+<td>Vendor selection</td>
+<td>Cost vs capability vs lock-in</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-healthcare-digital-twin">7️⃣ Healthcare / Digital Twin<a class="headerlink" href="#7-healthcare-digital-twin" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatment plan comparison</td>
+<td>Multiple therapies → outcome scoring</td>
+</tr>
+<tr>
+<td>Disease progression simulation</td>
+<td>What-if intervention paths</td>
+</tr>
+<tr>
+<td>Resource allocation</td>
+<td>ICU beds vs staff vs equipment</td>
+</tr>
+</tbody>
+</table>
+<h1 id="example-tot-in-auto-remediation-agent">Example: ToT in Auto-Remediation Agent<a class="headerlink" href="#example-tot-in-auto-remediation-agent" title="Permanent link">&para;</a></h1>
+<p><strong>Problem:</strong> Database latency spike</p>
+<p><strong>Branches</strong></p>
+<ul>
+<li>Add read replica</li>
+<li>Increase instance size</li>
+<li>Optimize queries</li>
+<li>Add caching</li>
+</ul>
+<p><strong>Evaluate each branch on</strong></p>
+<ul>
+<li>Cost</li>
+<li>Time to recover</li>
+<li>Risk</li>
+<li>SLA impact</li>
+</ul>
+<p>➡️ Select best path → execute → validate
+➡️ Backtrack if validation fails</p>
+<h2 id="tot-vs-cot-in-practice">ToT vs CoT in Practice<a class="headerlink" href="#tot-vs-cot-in-practice" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem Type</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single deterministic solution</td>
+<td>CoT</td>
+</tr>
+<tr>
+<td>Multiple competing strategies</td>
+<td>ToT</td>
+</tr>
+<tr>
+<td>Need scoring function</td>
+<td>ToT</td>
+</tr>
+<tr>
+<td>Tool order matters</td>
+<td>ToT</td>
+</tr>
+<tr>
+<td>Low latency requirement</td>
+<td>CoT</td>
+</tr>
+</tbody>
+</table>
+<h1 id="agentic-ai-incident-auto-remediation-flow-using-langchain-langgraph">Agentic AI Incident Auto-Remediation flow using LangChain + LangGraph<a class="headerlink" href="#agentic-ai-incident-auto-remediation-flow-using-langchain-langgraph" title="Permanent link">&para;</a></h1>
+<p><strong>Flow:</strong> Incident Trigger → Diagnosis → RCA → Planning → Validate → Execute → Validate → Self-Learn → Feedback → End</p>
+<h2 id="code-structure">Code Structure<a class="headerlink" href="#code-structure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>incident_remediation_complete.py   ← Single-file, run this
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>graph.py                           ← LangGraph StateGraph builder
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>state.py                           ← All dataclasses + TypedDict
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>tools.py                           ← 20 tools grouped by agent
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>agents/                            ← 9 individual agent files
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  trigger_agent.py
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  diagnosis_agent.py      ← ToT hypothesis exploration
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>  rca_agent.py
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>  planning_agent.py       ← ToT plan generation
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>  pre_validate_agent.py
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>  execution_agent.py
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>  post_validate_agent.py
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  learning_agent.py
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  feedback_agent.py
+</code></pre></div>
+<h2 id="key-design-decisions">Key Design Decisions<a class="headerlink" href="#key-design-decisions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True ToT</td>
+<td>Diagnosis + Planning both use generate→evaluate→select at their decision points</td>
+</tr>
+<tr>
+<td>Auto-rollback</td>
+<td>Execution agent triggers rollback per-step on failure, not just at the end</td>
+</tr>
+<tr>
+<td>Retry loop</td>
+<td>post_validate → execute edge (max 3 retries before escalation)</td>
+</tr>
+<tr>
+<td>Re-plan loop</td>
+<td>pre_validate → plan edge (max 2 re-plans before escalation)</td>
+</tr>
+<tr>
+<td>State persistence</td>
+<td>MemorySaver checkpoints every node — resumable after crash</td>
+</tr>
+<tr>
+<td>Human gate</td>
+<td>P1 incidents pause at pre-validate for approval (auto-approved in demo)</td>
+</tr>
+<tr>
+<td>Blast radius</td>
+<td>Pre-validate fetches downstream deps before greenlighting execution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-deploymentconfig-checklist-in-tabular-format">5) Deployment/config checklist in tabular format<a class="headerlink" href="#5-deploymentconfig-checklist-in-tabular-format" title="Permanent link">&para;</a></h2>
+<p><strong>5.1 Packages</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Packages (typical)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LangGraph + LangChain</td>
+<td><code>langgraph</code>, <code>langchain</code>, <code>langchain-openai</code></td>
+</tr>
+<tr>
+<td>YAML policy</td>
+<td><code>pyyaml</code></td>
+</tr>
+<tr>
+<td>OpenTelemetry</td>
+<td><code>opentelemetry-api</code>, <code>opentelemetry-sdk</code>, <code>opentelemetry-exporter-otlp</code></td>
+</tr>
+<tr>
+<td>PGVectorStore</td>
+<td><code>langchain-postgres</code>, <code>psycopg</code> (or your postgres driver)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.2 Environment variables</strong></p>
+<table>
+<thead>
+<tr>
+<th>Var</th>
+<th>Example</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POLICY_YAML</code></td>
+<td><code>policy.yaml</code></td>
+<td>policy/RBAC source</td>
+</tr>
+<tr>
+<td><code>OTEL_EXPORTER_OTLP_ENDPOINT</code></td>
+<td><code>http://localhost:4317</code></td>
+<td>OTLP collector (Tempo/Jaeger/Collector)</td>
+</tr>
+<tr>
+<td><code>PGVECTOR_CONN</code></td>
+<td><code>postgresql+psycopg://u:p@host:5432/db</code></td>
+<td>PGVector connection</td>
+</tr>
+<tr>
+<td><code>EMBED_MODEL</code></td>
+<td><code>text-embedding-3-large</code></td>
+<td>embeddings model</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True ToT</td>
+<td>Diagnosis + Planning both use generate→evaluate→select at their decision points</td>
+</tr>
+<tr>
+<td>Auto-rollback</td>
+<td>Execution agent triggers rollback per-step on failure, not just at the end</td>
+</tr>
+<tr>
+<td>Retry loop</td>
+<td>post_validate → execute edge (max 3 retries before escalation)</td>
+</tr>
+<tr>
+<td>Re-plan loop</td>
+<td>pre_validate → plan edge (max 2 re-plans before escalation)</td>
+</tr>
+<tr>
+<td>State persistence</td>
+<td>MemorySaver checkpoints every node — resumable after crash</td>
+</tr>
+<tr>
+<td>Human gate</td>
+<td>P1 incidents pause at pre-validate for approval (auto-approved in demo)</td>
+</tr>
+<tr>
+<td>Blast radius</td>
+<td>Pre-validate fetches downstream deps before greenlighting execution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="heres-exactly-how-tree-of-thoughts-tot-is-used-in-your-incident-auto-remediation-flow-in-a-simple-and-concrete-way">Here’s exactly how Tree of Thoughts (ToT) is used in your incident auto-remediation flow, in a simple and concrete way.<a class="headerlink" href="#heres-exactly-how-tree-of-thoughts-tot-is-used-in-your-incident-auto-remediation-flow-in-a-simple-and-concrete-way" title="Permanent link">&para;</a></h2>
+<p><strong>Where ToT fits in your pipeline</strong></p>
+<table>
+<thead>
+<tr>
+<th>Your Flow Step</th>
+<th>What happens normally</th>
+<th>What ToT changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diagnosis → RCA</td>
+<td>You identify likely root cause</td>
+<td>Same (ToT not required here)</td>
+</tr>
+<tr>
+<td><strong>RCA → Planning</strong></td>
+<td>You create <strong>one</strong> plan (linear CoT)</td>
+<td>You create <strong>many competing plans</strong> (branches)</td>
+</tr>
+<tr>
+<td>Plan Validate</td>
+<td>Validate that one plan</td>
+<td>Validate the <strong>best-scoring</strong> plan (after pruning)</td>
+</tr>
+<tr>
+<td>Execute</td>
+<td>Execute the selected plan</td>
+<td>If it fails, ToT provides <strong>next best branch</strong> (backtrack)</td>
+</tr>
+<tr>
+<td>Post-Validate</td>
+<td>Check recovery</td>
+<td>If not recovered, ToT switches to another branch</td>
+</tr>
+</tbody>
+</table>
+<p>So ToT is mainly used in the <strong>Planning</strong> part (and supports <strong>backtracking</strong> after validation/execution).</p>
+<h2 id="tot-in-your-system-step-by-step">ToT in your system: step-by-step<a class="headerlink" href="#tot-in-your-system-step-by-step" title="Permanent link">&para;</a></h2>
+<p><strong>1) Generate multiple plan branches (Thoughts)</strong></p>
+<p>Instead of a single plan, the planner generates a tree of options.</p>
+<table>
+<thead>
+<tr>
+<th>Branch</th>
+<th>Example Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Branch A</td>
+<td>Restart pods / deployment</td>
+</tr>
+<tr>
+<td>Branch B</td>
+<td>Scale replicas</td>
+</tr>
+<tr>
+<td>Branch C</td>
+<td>Rollback last deployment</td>
+</tr>
+<tr>
+<td>Branch D</td>
+<td>Shift traffic to healthy region</td>
+</tr>
+<tr>
+<td>Branch E</td>
+<td>Increase DB pool / read replicas (if allowed)</td>
+</tr>
+</tbody>
+</table>
+<p>This is the “Tree” part.</p>
+<h2 id="2-score-each-branch-evaluation">2) Score each branch (Evaluation)<a class="headerlink" href="#2-score-each-branch-evaluation" title="Permanent link">&para;</a></h2>
+<p>Each branch is <strong>evaluated</strong> using a scoring function (not guessing).</p>
+<table>
+<thead>
+<tr>
+<th>Scoring Factor</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Policy score</td>
+<td>Allowed by RBAC + policy?</td>
+</tr>
+<tr>
+<td>Risk score</td>
+<td>Blast radius / chance of outage</td>
+</tr>
+<tr>
+<td>Time-to-recover</td>
+<td>Estimated MTTR</td>
+</tr>
+<tr>
+<td>Cost impact</td>
+<td>Scaling costs, resource usage</td>
+</tr>
+<tr>
+<td>Confidence match</td>
+<td>Does the plan match the RCA confidence/domain?</td>
+</tr>
+<tr>
+<td>Historical success</td>
+<td>Similar incident success in memory</td>
+</tr>
+</tbody>
+</table>
+<p>Example (conceptually):</p>
+<ul>
+<li>Restart pods: low risk, fast → good score</li>
+<li>Scale to 20 replicas: fast but <strong>policy violation</strong> → pruned</li>
+<li>Rollback: medium risk, longer → maybe 2nd best</li>
+</ul>
+<h2 id="3-prune-bad-branches-pruning">3) Prune bad branches (Pruning)<a class="headerlink" href="#3-prune-bad-branches-pruning" title="Permanent link">&para;</a></h2>
+<p>Before executing anything, ToT <strong>removes</strong> branches that are:</p>
+<ul>
+<li>policy violations</li>
+<li>too risky for AUTO</li>
+<li>budget exceeding</li>
+<li>low score</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Branch</th>
+<th>Result</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale to 12 replicas</td>
+<td>❌ Pruned</td>
+<td>AUTO policy: replicas &gt; 10</td>
+</tr>
+<tr>
+<td>DB failover</td>
+<td>❌ Pruned</td>
+<td>HIGH risk not allowed in AUTO</td>
+</tr>
+<tr>
+<td>Restart deployment</td>
+<td>✅ Keep</td>
+<td>LOW risk + allowed</td>
+</tr>
+<tr>
+<td>Scale to 6 replicas</td>
+<td>✅ Keep</td>
+<td>Allowed + medium risk</td>
+</tr>
+</tbody>
+</table>
+<p>This is the biggest advantage: <strong>unsafe plans are filtered before execution</strong>.</p>
+<h2 id="4-select-the-best-plan-best-leaf">4) Select the best plan (Best leaf)<a class="headerlink" href="#4-select-the-best-plan-best-leaf" title="Permanent link">&para;</a></h2>
+<p>After scoring and pruning:</p>
+<ul>
+<li>pick the <strong>highest scoring plan</strong></li>
+<li>send to validator/executor</li>
+</ul>
+<p>Example winner:</p>
+<p>✅ “Restart deployment” if the evidence looks like stuck connections
+or
+✅ “Scale to 6 replicas” if evidence looks like load spike.</p>
+<h2 id="5-backtrack-if-needed-tot-advantage">5) Backtrack if needed (ToT advantage)<a class="headerlink" href="#5-backtrack-if-needed-tot-advantage" title="Permanent link">&para;</a></h2>
+<p>If the chosen plan fails, ToT doesn’t “panic” or stop.
+It simply moves to the <strong>next best branch</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Execution result</th>
+<th>ToT action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plan validated fails</td>
+<td>Choose next best plan and re-validate</td>
+</tr>
+<tr>
+<td>Execution fails</td>
+<td>Backtrack to next branch</td>
+</tr>
+<tr>
+<td>Post-validation fails (SLO not recovered)</td>
+<td>Backtrack and try alternate plan</td>
+</tr>
+</tbody>
+</table>
+<p>That’s the <code>Backtracking</code> part.</p>
+<h2 id="mini-example-end-to-end">Mini example (end-to-end)<a class="headerlink" href="#mini-example-end-to-end" title="Permanent link">&para;</a></h2>
+<p>Incident: <strong>Checkout latency spike</strong></p>
+<p>RCA: <strong>DB pool exhaustion suspected (confidence 0.8)</strong></p>
+<p><strong>ToT planner generates candidates:</strong></p>
+<ol>
+<li>Restart app pods</li>
+<li>Scale replicas to 6</li>
+<li>Rollback last deploy</li>
+<li>Scale to 12</li>
+<li>Failover DB</li>
+</ol>
+<p><strong>Pruning:</strong></p>
+<ul>
+<li>Scale to 12 → pruned (policy)</li>
+<li>DB failover → pruned (HIGH risk in AUTO)</li>
+</ul>
+<p><strong>Scoring (remaining):</strong></p>
+<ul>
+<li>Restart pods → score 8.1</li>
+<li>Scale to 6 → score 7.4</li>
+<li>Rollback → score 6.2</li>
+</ul>
+<p>✅ Execute restart pods
+Post-validate fails → backtrack
+✅ Execute scale to 6
+Post-validate passes → end</p>
+<h2 id="what-tot-gives-you-in-agentic-ai">What ToT gives you in Agentic AI<a class="headerlink" href="#what-tot-gives-you-in-agentic-ai" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Without ToT (CoT)</th>
+<th>With ToT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One plan only</td>
+<td>Multiple alternatives ready</td>
+</tr>
+<tr>
+<td>If plan fails → re-think from scratch</td>
+<td>Just take next best branch</td>
+</tr>
+<tr>
+<td>Higher risk of unsafe actions</td>
+<td>Policy pruning prevents unsafe plans</td>
+</tr>
+<tr>
+<td>Hard to compare trade-offs</td>
+<td>Explicit scoring function</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exact-tot-planner-pseudo-flow-in-1015-lines-branch-score-prune-select-backtrack-matched-to-your-langgraph-nodes">Exact ToT planner pseudo-flow in 10–15 lines (branch → score → prune → select → backtrack) matched to your LangGraph nodes.<a class="headerlink" href="#exact-tot-planner-pseudo-flow-in-1015-lines-branch-score-prune-select-backtrack-matched-to-your-langgraph-nodes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1) [LangGraph node: plan_tot] inputs = {RCA, Evidence, Policy, Memory, AutonomyTier}
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>2) branches = generate_candidates(RCA)                      # restart / scale / rollback / traffic-shift / config-fix
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>3) for each b in branches:
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>4)     violations = policy_check(b, AutonomyTier)           # RBAC + allowlist + param limits + blast-radius
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>5)     if violations: mark b as PRUNED and continue
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>6)     hist = memory_similarity(RCA, service)               # PGVector: similar incidents + success rates
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>7)     b.score = score(b, RCA.conf, risk(b), time(b), cost(b), hist)   # weighted scoring
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>8) survivors = topK(sort_by_score(branches), K=beam_width)  # PRUNE low-score branches (beam search)
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>9) best = survivors[0]                                     # SELECT best branch (highest score)
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>10) [LangGraph node: validate_plan] if validate(best)==FAIL: add_constraints(); goto plan_tot (BACKTRACK)
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>11) [LangGraph node: execute] if execute(best)==FAIL: rollback_if_possible(); goto plan_tot (BACKTRACK)
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>12) [LangGraph node: post_validate] if SLO_not_met: add_new_evidence(); goto plan_tot (BACKTRACK)
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>13) [LangGraph node: learn] upsert(incident, best, outcome) to PGVector for future hist scoring
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>14) [LangGraph node: feedback] update ITSM + notify; END
+</code></pre></div>
+<h2 id="where-tot-belongs-in-an-agent-architecture">Where ToT belongs in an agent architecture<a class="headerlink" href="#where-tot-belongs-in-an-agent-architecture" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Agent Role</th>
+<th>Use ToT?</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planner / Strategy Agent</td>
+<td>✅ <strong>YES (Primary place)</strong></td>
+<td>Needs to compare multiple action paths and pick best</td>
+</tr>
+<tr>
+<td>RCA Agent</td>
+<td>⚠️ Sometimes</td>
+<td>When multiple competing root-cause hypotheses must be explored</td>
+</tr>
+<tr>
+<td>Risk Simulation Agent</td>
+<td>✅ Yes</td>
+<td>What-if failure trees, blast radius modeling</td>
+</tr>
+<tr>
+<td>Optimizer Agent</td>
+<td>✅ Yes</td>
+<td>Cost vs performance vs SLA trade-offs</td>
+</tr>
+<tr>
+<td>Validator Agent</td>
+<td>❌ No</td>
+<td>Deterministic rule checks (policy engine)</td>
+</tr>
+<tr>
+<td>Executor Agent</td>
+<td>❌ No</td>
+<td>Just runs selected steps</td>
+</tr>
+<tr>
+<td>Intake / Telemetry Agent</td>
+<td>❌ No</td>
+<td>Data collection, no branching logic</td>
+</tr>
+<tr>
+<td>Feedback / Learning Agent</td>
+<td>❌ No</td>
+<td>Stores outcomes, no search</td>
+</tr>
+</tbody>
+</table>
+<h2 id="in-incident-specific-pipeline">In Incident specific pipeline<a class="headerlink" href="#in-incident-specific-pipeline" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Incident → Diagnosis → RCA → Planning → Validate → Execute → Validate → Learn → Feedback
+</code></pre></div>
+<h2 id="tot-usage-points">ToT usage points<a class="headerlink" href="#tot-usage-points" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>ToT Needed?</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diagnosis</td>
+<td>❌</td>
+<td>Linear evidence aggregation</td>
+</tr>
+<tr>
+<td>RCA</td>
+<td>⚠️ Optional ToT</td>
+<td>Only if multiple root-cause hypotheses must be tested</td>
+</tr>
+<tr>
+<td>Planning</td>
+<td>✅ <strong>Main ToT usage</strong></td>
+<td>Multiple remediation strategies</td>
+</tr>
+<tr>
+<td>Validate</td>
+<td>❌</td>
+<td>Policy check, deterministic</td>
+</tr>
+<tr>
+<td>Execute</td>
+<td>❌</td>
+<td>Tool orchestration only</td>
+</tr>
+<tr>
+<td>Post-Validate</td>
+<td>❌</td>
+<td>SLO check only</td>
+</tr>
+<tr>
+<td>Learning</td>
+<td>❌</td>
+<td>Memory write</td>
+</tr>
+</tbody>
+</table>
+<p>So <strong>Planning is the core ToT node.</strong></p>
+<h2 id="when-tot-moves-outside-planner">When ToT moves outside Planner<a class="headerlink" href="#when-tot-moves-outside-planner" title="Permanent link">&para;</a></h2>
+<p>Use ToT in <strong>RCA</strong> if:</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Many possible root causes</td>
+<td>DB vs network vs app vs cache</td>
+</tr>
+<tr>
+<td>Need hypothesis testing</td>
+<td>Query DB metrics → eliminate branch</td>
+</tr>
+<tr>
+<td>Causal graph reasoning</td>
+<td>Dependency failure tree</td>
+</tr>
+</tbody>
+</table>
+<p>That becomes <strong>Hypothesis Tree of Thoughts</strong>.</p>
+<h2 id="conceptual-separation">Conceptual separation<a class="headerlink" href="#conceptual-separation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find root cause</td>
+<td>Hypothesis ToT (optional)</td>
+</tr>
+<tr>
+<td>Choose best remediation</td>
+<td><strong>Action ToT (mandatory for complex systems)</strong></td>
+</tr>
+<tr>
+<td>Check policy</td>
+<td>Rules engine (no ToT)</td>
+</tr>
+<tr>
+<td>Execute</td>
+<td>Workflow engine (no ToT)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mental-model">Mental model<a class="headerlink" href="#mental-model" title="Permanent link">&para;</a></h2>
+<p>Think of ToT as a <strong>search algorithm</strong>, not an agent.</p>
+<p>It is a <strong>reasoning strategy used inside an agent</strong>.</p>
+<p>Most commonly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Planner Agent
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>   └── uses ToT internally
+</code></pre></div>
+<p>But you can also have:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>RCA Agent
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>   └── uses ToT for hypothesis testing
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Risk Agent
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>   └── uses ToT for failure simulation
+</code></pre></div>
+<h2 id="production-best-practice">Production best practice<a class="headerlink" href="#production-best-practice" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Use ToT?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planner</td>
+<td>✅ Always (for non-trivial remediation)</td>
+</tr>
+<tr>
+<td>RCA</td>
+<td>Use ToT only if multiple competing causes</td>
+</tr>
+<tr>
+<td>Cost Optimizer</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Risk Simulator</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Policy Validator</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rule-of-thumb">Rule of thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<p>Use ToT when the agent must:</p>
+<p>✔ Compare multiple options
+✔ Evaluate trade-offs
+✔ Simulate outcomes
+✔ Backtrack on failure</p>
+<p>That is <strong>planning behavior</strong>, so it naturally fits the <strong>Planner agent</strong>.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 2, 2026 14:36:41 UTC">March 2, 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 2, 2026 14:36:41 UTC">March 2, 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © AI-Documents
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/AIML-ResearchLab/AI-Documents" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
