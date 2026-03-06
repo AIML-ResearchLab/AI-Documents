@@ -1,16 +1,22 @@
-# 17 - Multilingual Speech Processing and Code Switching
+# 17 - Multilingual Speech Processing and Code-Switching
 
-## 17.1 Multilingual Challenges
-Language mixing and script-switching increase recognition complexity.
+## Objective
+Build speech analytics that work across languages and mixed-language conversations.
 
-## 17.2 Strategies
-- language ID front-end
-- multilingual acoustic models
-- code-switch-aware language modeling
+## Core Challenges
+- Language identification in short turns
+- Intra-sentence code-switching
+- Non-uniform lexicons and transliteration
+- Accent and dialect variability
 
-## 17.3 Evaluation
-Track metrics by language pair and mixed-language segments.
+## Practical Patterns
+- Multi-stage pipeline: LID -> multilingual ASR -> language-aware NLP
+- Shared multilingual embeddings with locale-specific adaptation
+- Separate evaluation slices by language pair and switch frequency
 
-## 17.4 Real-Time Example
-Support center handles English-Hindi code-switched calls with language-aware ASR.
+## Real-Time Example
+A global support desk handling Hindi-English calls uses dynamic language routing per turn, reducing transcription errors in mixed-language escalation calls.
 
+## SLP3 Coverage Mapping
+- Ch. 15 ASR generalization limits
+- Ch. 2 tokenization/Unicode foundations for multilingual text

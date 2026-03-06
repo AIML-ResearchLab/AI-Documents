@@ -1,17 +1,22 @@
 # 28 - Cost, Latency, and Inference Optimization
 
-## 28.1 Cost Drivers
-audio duration, model size, decoding complexity, and streaming overhead.
+## Objective
+Optimize speech analytics for business efficiency without sacrificing critical quality.
 
-## 28.2 Optimization Methods
-- model compression
-- chunk sizing
-- dynamic routing by call type
-- caching reusable outputs
+## Optimization Levers
+- Model distillation and quantization
+- Dynamic batching for non-interactive workloads
+- Tiered inference (fast model first, heavy model on demand)
+- Cache repeated context and retrieval outputs
 
-## 28.3 SLO Management
-Track p95 latency and quality degradation jointly.
+## Cost Engineering
+- Separate real-time and batch pipelines
+- Track cost per audio minute and per resolved case
+- Enforce budget-aware routing policies
 
-## 28.4 Real-Time Example
-Latency budget met by routing short calls to compact ASR model.
+## Real-Time Example
+A support operation runs lightweight streaming ASR for live hints, then batch reprocesses only high-value calls with a larger model for compliance-grade transcripts.
 
+## SLP3 Coverage Mapping
+- Ch. 15 architecture choices and WER/latency tradeoff
+- Ch. 11 retrieval cost/performance balance

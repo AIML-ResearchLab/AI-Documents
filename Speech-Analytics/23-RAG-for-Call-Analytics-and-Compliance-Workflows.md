@@ -1,14 +1,23 @@
 # 23 - RAG for Call Analytics and Compliance Workflows
 
-## 23.1 RAG Architecture
-Retrieve policy/procedure context to ground call analytics conclusions.
+## Objective
+Ground call analytics decisions in authoritative policy and knowledge sources.
 
-## 23.2 Compliance Support
-Map transcript claims to exact policy references.
+## RAG Workflow
+1. Ingest policy documents and KB articles
+2. Chunk, embed, and index for retrieval
+3. Retrieve policy-relevant context per call segment
+4. Generate grounded compliance rationale
+5. Log citations for audit trails
 
-## 23.3 Metrics
-citation accuracy, unsupported claim rate, policy coverage.
+## Compliance Use Cases
+- Mandatory disclosure validation
+- Product misrepresentation detection
+- Jurisdiction-specific script checks
 
-## 23.4 Real-Time Example
-Compliance monitor flags disclosures missing from script using retrieved policy evidence.
+## Real-Time Example
+During loan servicing calls, RAG retrieves region-specific disclosure policy and flags non-compliant phrases with linked evidence paragraphs for auditors.
 
+## SLP3 Coverage Mapping
+- Ch. 11 retrieval-based models
+- Ch. 20 information extraction concepts

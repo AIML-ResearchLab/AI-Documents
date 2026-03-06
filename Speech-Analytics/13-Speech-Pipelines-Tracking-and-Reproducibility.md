@@ -1,16 +1,23 @@
 # 13 - Speech Pipelines, Tracking, and Reproducibility
 
-## 13.1 Pipeline Stages
-ingest -> preprocess -> ASR/diarization -> analytics -> storage and dashboards.
+## Objective
+Ensure every model result can be reproduced from versioned code, data, and configuration.
 
-## 13.2 Tracking Essentials
-Log model version, preprocessing config, feature spec, and evaluation outputs.
+## Pipeline Stages to Version
+- Raw audio snapshot and ingestion manifest
+- Preprocessing config (VAD, denoise, normalization)
+- Feature extractor version
+- Model weights and decoding parameters
+- Postprocessing rules (normalization, redaction)
 
-## 13.3 Reproducibility Controls
-- fixed evaluation sets
-- versioned data snapshots
-- deterministic decoding config where possible
+## Experiment Tracking
+- Log runs with dataset hash, hyperparameters, metrics, artifacts
+- Record slice-level metrics (accent, noise, region, call type)
+- Attach failure examples for error analysis
 
-## 13.4 Real-Time Example
-Compare ASR versions on stable benchmark before rollout.
+## Real-Time Example
+A regression appears after model upgrade. Because feature and decoder versions are pinned, the team reproduces the issue and rolls back in under 20 minutes.
 
+## SLP3 Coverage Mapping
+- Ch. 15 ASR architecture/evaluation dependencies
+- Ch. 4 reproducible evaluation discipline

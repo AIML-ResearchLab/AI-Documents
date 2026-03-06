@@ -1,14 +1,32 @@
 # 05 - Speech-to-Text (ASR) Fundamentals
 
-## 5.1 ASR Pipeline
-audio preprocessing -> acoustic modeling -> decoding -> text normalization.
+## Objective
+Understand modern ASR systems and how to make them useful for analytics at scale.
 
-## 5.2 Error Sources
-noise, accents, domain terminology, crosstalk, and low-quality microphones.
+## ASR Pipeline
+1. Acoustic front-end features
+2. Acoustic/encoder model
+3. Decoder (CTC, transducer, or seq2seq)
+4. Language model integration
+5. Text normalization and punctuation
 
-## 5.3 Adaptation
-Use domain lexicons and custom language models for better recognition.
+## Key Error Drivers
+- Accent and dialect mismatch
+- Domain terminology and named entities
+- Crosstalk and overlapping speech
+- Low SNR and compression artifacts
 
-## 5.4 Real-Time Example
-Add product vocabulary to improve technical support transcript accuracy.
+## Quality Improvements
+- Domain lexicon and phrase hints
+- Fine-tuning on in-domain audio/transcripts
+- Post-ASR normalization (numbers, acronyms, dates)
+- Human-in-the-loop correction for high-risk workflows
 
+## Real-Time Example
+An insurance claims center adds policy/product phrase hints to streaming ASR. Proper noun recognition improves, reducing claim-routing errors and manual correction effort.
+
+## SLP3 Coverage Mapping
+- Ch. 15.1 ASR task definition
+- Ch. 15.3 encoder-decoder ASR
+- Ch. 15.5 CTC
+- Ch. 15.6 WER evaluation

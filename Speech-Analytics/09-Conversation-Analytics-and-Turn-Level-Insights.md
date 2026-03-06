@@ -1,17 +1,23 @@
 # 09 - Conversation Analytics and Turn-Level Insights
 
-## 9.1 Conversation Structure
-Analyze turns, interruptions, hold times, silence, and resolution patterns.
+## Objective
+Transform raw calls into turn-level interaction intelligence for coaching, compliance, and automation.
 
-## 9.2 Turn-Level Features
-- talk ratio
-- interruption frequency
-- response latency
-- compliance phrases
+## Key Conversation Signals
+- Turn count and average turn duration
+- Interruptions and overlap rate
+- Silence/hold patterns
+- Question-to-answer latency
+- Topic shifts and escalation points
 
-## 9.3 Business Applications
-quality assurance, training coaching, and process optimization.
+## Derived Insights
+- Script adherence by stage
+- Empathy and active-listening markers
+- Root-cause segments for repeat contacts
 
-## 9.4 Real-Time Example
-Flag calls with repeated interruptions for agent coaching review.
+## Real-Time Example
+A travel support center detects excessive interruption patterns in live calls and recommends a next-best conversational move to reduce customer frustration.
 
+## SLP3 Coverage Mapping
+- Ch. 25 conversation properties and dialog acts
+- Ch. 24 discourse coherence concepts for topic continuity

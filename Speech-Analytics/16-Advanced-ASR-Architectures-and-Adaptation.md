@@ -1,16 +1,22 @@
 # 16 - Advanced ASR Architectures and Adaptation
 
-## 16.1 Modern ASR Architectures
-- CTC-style models
-- transducer-style models
-- encoder-decoder attention models
+## Objective
+Move beyond baseline ASR with architectures and adaptation methods tuned for production domains.
 
-## 16.2 Domain Adaptation
-Adapt acoustic/language components for domain vocabulary and speaking style.
+## Advanced Architectures
+- Conformer/transformer encoders for robust speech modeling
+- Encoder-decoder and transducer variants for streaming/offline tradeoffs
+- Self-supervised pretraining (e.g., HuBERT-like approaches) for low-label settings
 
-## 16.3 Practical Rule
-Evaluate adapted models on accented, noisy, and long-form subsets.
+## Adaptation Levers
+- Domain fine-tuning with curated in-domain audio
+- Dynamic vocabulary injection and contextual biasing
+- LM rescoring for domain terminology and phrase structure
 
-## 16.4 Real-Time Example
-Fine-tuned ASR improves medical terminology recognition in call transcripts.
+## Real-Time Example
+A legal-tech platform fine-tunes on courtroom audio and adds legal phrase biasing. Transcript fidelity for named entities rises enough to reduce manual review workload.
 
+## SLP3 Coverage Mapping
+- Ch. 15.3 encoder-decoder ASR
+- Ch. 15.4 self-supervised speech models
+- Ch. 15.5 CTC/decoding concepts

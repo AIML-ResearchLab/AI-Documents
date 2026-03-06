@@ -1,14 +1,24 @@
 # 06 - Speaker Diarization and Speaker ID Basics
 
-## 6.1 Diarization Task
-Determine "who spoke when" in multi-speaker audio.
+## Objective
+Separate “who spoke when” and connect speech turns to speaker identities for analytics, QA, and compliance.
 
-## 6.2 Speaker Identification
-Match voice segments to known speakers when enrollment exists.
+## Core Tasks
+- **Diarization**: partition audio into speaker-homogeneous segments.
+- **Speaker identification**: map voice to known identity set.
+- **Speaker verification**: confirm claimed identity.
 
-## 6.3 Common Challenges
-overlap speech, short turns, channel noise, and speaker variability.
+## Typical Pipeline
+- VAD -> embedding extraction (x-vector/ECAPA style) -> clustering -> overlap handling -> resegmentation
 
-## 6.4 Real-Time Example
-Separate customer and agent speech for quality scoring pipeline.
+## Operational Concerns
+- Channel mismatch can hurt speaker embeddings.
+- Overlapping speech inflates diarization error.
+- Identity systems require strong consent and governance.
 
+## Real-Time Example
+A BPO QA platform uses diarization to isolate agent vs customer turns, enabling separate sentiment trajectories and accurate script-adherence scoring.
+
+## SLP3 Coverage Mapping
+- Ch. 15 ASR outputs as diarization input
+- Ch. 25 turn-taking structure for speaker-change reasoning

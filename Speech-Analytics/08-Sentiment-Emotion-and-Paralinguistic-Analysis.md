@@ -1,14 +1,22 @@
 # 08 - Sentiment, Emotion, and Paralinguistic Analysis
 
-## 8.1 Sentiment vs Emotion
-Sentiment focuses polarity; emotion captures richer affective states.
+## Objective
+Estimate customer affect with lexical + acoustic evidence, while controlling for bias and uncertainty.
 
-## 8.2 Signals
-Use lexical, acoustic, and prosodic indicators together.
+## Task Breakdown
+- **Sentiment**: polarity (positive/neutral/negative)
+- **Emotion**: anger, frustration, relief, confusion, etc.
+- **Paralinguistics**: cues from tone, loudness, pause, and speaking rate
 
-## 8.3 Risks
-Emotion inference is sensitive to context, culture, and annotation bias.
+## Modeling Notes
+- Fuse transcript features with prosody for stronger robustness.
+- Use calibration and confidence bands in high-stakes workflows.
+- Track subgroup performance to avoid demographic harm.
 
-## 8.4 Real-Time Example
-Escalation predictor combines negative sentiment and raised speaking intensity.
+## Real-Time Example
+A utility provider flags calls with sustained negative sentiment plus raised vocal intensity, then inserts de-escalation guidance into the agent-assist panel.
 
+## SLP3 Coverage Mapping
+- Ch. 22 sentiment and affect lexicons
+- Ch. 14.3 prosody
+- Ch. 4 precision/recall and error analysis

@@ -1,17 +1,24 @@
 # 29 - Monitoring, Drift, and Incident Response
 
-## 29.1 Drift Monitoring
-Detect changes in audio quality, language distribution, and model confidence.
+## Objective
+Detect quality degradation early and restore service safely through repeatable incident workflows.
 
-## 29.2 Alerts
-Set thresholds for WER/DER spikes, missing compliance detections, and latency anomalies.
+## Monitoring Layers
+- **Data drift**: language mix, noise profile, channel changes
+- **Model drift**: WER/DER/F1 deterioration over time
+- **System health**: queue lag, p95 latency, error rate
+- **Business impact**: missed compliance events, false escalations
 
-## 29.3 Incident Runbook
-1. detect and classify
-2. contain via fallback
-3. diagnose root cause
-4. patch and validate
+## Incident Playbook
+1. Detect and classify severity
+2. Contain (traffic shift, model fallback)
+3. Diagnose (slice-level and pipeline-level)
+4. Recover (rollback or hotfix)
+5. Postmortem and prevention tasks
 
-## 29.4 Real-Time Example
-Telephony codec change causes WER spike; fallback profile activated.
+## Real-Time Example
+After a telephony codec change, WER spikes in one region. Automated monitors trigger rollback to prior front-end preprocessing profile within minutes.
 
+## SLP3 Coverage Mapping
+- Ch. 15 WER as leading ASR health signal
+- Ch. 25 conversation-level KPI monitoring implications

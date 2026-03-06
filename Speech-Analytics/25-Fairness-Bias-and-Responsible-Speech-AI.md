@@ -1,16 +1,22 @@
 # 25 - Fairness, Bias, and Responsible Speech AI
 
-## 25.1 Fairness Risks
-Performance disparities across accents, dialects, genders, and channel conditions.
+## Objective
+Prevent performance and decision disparities across accents, dialects, language backgrounds, and demographic groups.
 
-## 25.2 Evaluation
-Report metrics by subgroup and deployment context.
+## Bias Risk Areas
+- ASR error inflation by accent/dialect
+- Emotion misclassification across speaking styles
+- Uneven false positives in compliance triggers
 
-## 25.3 Mitigations
-- balanced training data
-- targeted adaptation
-- threshold calibration by policy
+## Mitigation Controls
+- Slice-based evaluation and public scorecards
+- Balanced data curation and targeted augmentation
+- Threshold tuning by harm model, not only aggregate F1
+- Human appeal and override paths
 
-## 25.4 Real-Time Example
-ASR fairness audit identifies accent gap and triggers targeted retraining.
+## Real-Time Example
+A utility provider identifies higher false escalation rates for one dialect group and retrains with balanced data plus calibration, reducing disparity without harming global quality.
 
+## SLP3 Coverage Mapping
+- Ch. 4 avoiding harms in classification
+- Ch. 22 affect interpretation risks

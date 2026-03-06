@@ -1,14 +1,24 @@
 # 20 - Emotion Recognition and Behavioral Analytics at Scale
 
-## 20.1 Emotion Modeling
-Combine acoustic and lexical signals for richer behavior insights.
+## Objective
+Scale affect and behavior analytics responsibly across large call volumes and diverse populations.
 
-## 20.2 Operational Concerns
-Bias, calibration drift, and over-interpretation risks must be controlled.
+## Behavioral Signal Families
+- Emotion trend over call stages
+- Escalation/de-escalation pattern detection
+- Agent empathy and interruption dynamics
+- Silence and hesitation markers
 
-## 20.3 Quality Controls
-Use human-reviewed benchmark sets and uncertainty thresholds.
+## Scale Considerations
+- Batch + streaming hybrid scoring
+- Drift detection for emotion distributions
+- Human review loop for sensitive categories
+- Region-specific policy and compliance controls
 
-## 20.4 Real-Time Example
-Escalation likelihood model assists supervisors in near real-time.
+## Real-Time Example
+An enterprise support platform surfaces “high-risk frustration” episodes in live queues, helping supervisors prioritize intervention before SLA breaches.
 
+## SLP3 Coverage Mapping
+- Ch. 22 affect and connotation modeling
+- Ch. 25 conversational structure context
+- Ch. 4 evaluation and harm-aware reporting

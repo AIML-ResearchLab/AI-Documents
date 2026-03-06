@@ -1,14 +1,23 @@
 # 19 - Advanced Speaker Verification and Biometrics
 
-## 19.1 Verification Task
-Determine whether a speaker matches a claimed identity.
+## Objective
+Design secure speaker verification pipelines with explicit risk controls.
 
-## 19.2 Embedding-Based Approaches
-Use speaker embeddings with similarity scoring and thresholding.
+## Verification Architecture
+- Enrollment (reference voiceprint creation)
+- Verification scoring against claimed identity
+- Thresholding based on risk policy
+- Liveness and anti-spoof checks
 
-## 19.3 Security Risks
-Spoofing and replay attacks require anti-spoof safeguards.
+## Key Metrics
+- FAR (false accept rate)
+- FRR (false reject rate)
+- EER (equal error rate)
+- Detection performance under spoof attacks
 
-## 19.4 Real-Time Example
-Voice authentication workflow with liveness checks and fallback verification.
+## Real-Time Example
+A phone-banking IVR adds liveness checks and adaptive thresholds for high-value transactions, reducing fraud attempts while keeping customer friction manageable.
 
+## SLP3 Coverage Mapping
+- Ch. 15 speech representation relevance to speaker modeling
+- Ch. 4 thresholding and classification tradeoffs

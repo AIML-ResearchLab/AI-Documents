@@ -1,16 +1,22 @@
-# 24 - Speech Summarization and Agent Assist Systems
+# 24 - Speech Summarization and Agent-Assist Systems
 
-## 24.1 Summarization Patterns
-- extractive highlights
-- abstractive summaries
-- action item extraction
+## Objective
+Turn long conversations into concise, accurate summaries and deliver timely assistance to agents.
 
-## 24.2 Agent Assist
-Provide real-time prompts for next actions, empathy cues, and compliance reminders.
+## Summarization Design
+- Segment-level summaries for long calls
+- Final structured summary (issue, actions, promises, risks)
+- Factuality checks against transcript spans
 
-## 24.3 Quality Controls
-Ensure factual consistency with transcript and tool outputs.
+## Agent Assist Capabilities
+- Next-best action suggestions
+- Knowledge snippets and troubleshooting playbooks
+- Call disposition draft and CRM auto-fill
+- Optional spoken response playback using TTS
 
-## 24.4 Real-Time Example
-After-call summary auto-fills CRM notes with verified key fields.
+## Real-Time Example
+A technical support platform auto-generates a running summary every 60 seconds and pre-fills ticket fields before call end, reducing after-call work.
 
+## SLP3 Coverage Mapping
+- Ch. 16 text-to-speech overview for spoken assist channels
+- Ch. 25 conversation structure for summary segmentation

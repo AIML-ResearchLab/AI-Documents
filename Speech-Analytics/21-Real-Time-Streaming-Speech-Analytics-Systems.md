@@ -1,14 +1,30 @@
 # 21 - Real-Time Streaming Speech Analytics Systems
 
-## 21.1 Streaming Architecture
-capture -> VAD -> incremental ASR -> analytics -> action engine.
+## Objective
+Design low-latency systems that transform speech streams into actionable insights while calls are in progress.
 
-## 21.2 Latency Budgeting
-Define end-to-end latency targets for actionable assistance.
+## Streaming Reference Architecture
+- Ingestion (SIP/WebRTC/Kafka)
+- Chunking and VAD
+- Incremental ASR + diarization
+- Online analytics (intent, compliance, sentiment)
+- Event router and agent-assist UI/webhook output
 
-## 21.3 Reliability
-Use backpressure, retries, and graceful degradation strategies.
+## Latency Budgeting
+- Audio chunking: 200–500 ms
+- ASR incremental decode: sub-second
+- Analytics + action dispatch: sub-second
+- End-to-end target: typically < 2–3 s for live assistance
 
-## 21.4 Real-Time Example
-Agent assist system surfaces live compliance prompts within seconds.
+## Reliability Patterns
+- Backpressure-aware queues
+- Graceful degradation (disable heavy models first)
+- Idempotent event publication
+- Regional failover
 
+## Real-Time Example
+A card-services center streams live calls and triggers PCI warning prompts within 1.5 seconds when card-number disclosure risk is detected.
+
+## SLP3 Coverage Mapping
+- Ch. 15 ASR as real-time foundation
+- Ch. 25 turn-taking and dialog timing

@@ -1,16 +1,23 @@
 # 18 - Speech Enhancement, Noise Robustness, and Denoising
 
-## 18.1 Noise Problems
-Background noise and channel artifacts degrade transcript quality.
+## Objective
+Maintain analytics quality under real-world acoustic degradation.
 
-## 18.2 Enhancement Methods
-- spectral subtraction
-- neural denoising
-- beamforming concepts
+## Degradation Types
+- Background noise (street, office, TV)
+- Reverberation and echo
+- Packet loss and codec compression
+- Microphone distortion and clipping
 
-## 18.3 Robustness Validation
-Evaluate across SNR levels and realistic deployment conditions.
+## Robustness Toolkit
+- Neural denoising and dereverberation
+- Echo cancellation for speaker playback loops
+- Augmentation during training (noise/reverb mixes)
+- Confidence-aware downstream gating
 
-## 18.4 Real-Time Example
-Noise suppression preprocessor reduces WER in contact-center recordings.
+## Real-Time Example
+A ride-hailing support channel uses front-end denoising + confidence gating to avoid false compliance violations in noisy in-car calls.
 
+## SLP3 Coverage Mapping
+- Ch. 14 acoustic signal properties
+- Ch. 15 ASR robustness implications

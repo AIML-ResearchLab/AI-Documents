@@ -1,16 +1,26 @@
 # 26 - Privacy, Security, and Compliance in Speech Data
 
-## 26.1 Sensitive Data Controls
-Encrypt recordings, restrict access, and apply retention policies.
+## Objective
+Protect sensitive voice and transcript data across collection, storage, processing, and sharing.
 
-## 26.2 Privacy Techniques
-- PII redaction
-- voice anonymization where required
-- secure transcript storage
+## Security Baseline
+- Encryption in transit and at rest
+- Role-based access and least privilege
+- Key management and secret rotation
+- Immutable audit logging
 
-## 26.3 Compliance Operations
-Maintain auditable processing logs for regulated environments.
+## Privacy Controls
+- PII/PCI redaction in transcripts and audio snippets
+- Data minimization and retention windows
+- Consent tracking and jurisdiction-aware policy routing
 
-## 26.4 Real-Time Example
-Automated redaction pipeline removes card data from call transcripts.
+## Compliance Workflow
+- Control mapping to internal/legal policies
+- Automated evidence collection for audits
+- Continuous control testing in CI/CD
 
+## Real-Time Example
+A healthcare call platform redacts PHI entities in near real time and blocks unauthorized playback requests via policy-based access checks.
+
+## SLP3 Coverage Mapping
+- Ch. 15 and Ch. 25 outputs as sensitive operational data requiring governance

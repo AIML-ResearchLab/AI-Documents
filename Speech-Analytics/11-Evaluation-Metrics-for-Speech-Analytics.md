@@ -1,16 +1,24 @@
 # 11 - Evaluation Metrics for Speech Analytics
 
-## 11.1 ASR Metrics
-- WER
-- CER
+## Objective
+Use the right metric per component, and avoid misleading “single score” reporting.
 
-## 11.2 Diarization Metrics
-- DER
-- JER
+## Component-Wise Metrics
+- **ASR**: WER, CER, domain-specific keyword recall
+- **Diarization**: DER and overlap-aware DER
+- **Intent/Compliance classifiers**: precision, recall, F1, AUPRC
+- **Sentiment/Emotion**: macro F1, calibration error, subgroup parity gaps
+- **Summarization**: task-grounded human eval + factuality checks
 
-## 11.3 Classification Metrics
-precision, recall, F1, ROC/PR metrics.
+## Evaluation Strategy
+- Split by channel, accent, region, and domain
+- Report confidence intervals and significance when comparing models
+- Track online-vs-offline performance drift
 
-## 11.4 Reporting Rule
-Track metrics by language, channel, and segment to detect hidden regressions.
+## Real-Time Example
+A model with lower global WER still misses compliance phrases in accented calls. The team adds phrase-level recall KPI and catches the regression before production rollout.
 
+## SLP3 Coverage Mapping
+- Ch. 15.6 WER
+- Ch. 4 evaluation metrics and significance
+- Ch. 22 sentiment evaluation concerns

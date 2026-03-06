@@ -1,16 +1,24 @@
 # 22 - LLM-Integrated Speech Analytics Workflows
 
-## 22.1 Integration Pattern
-ASR transcript -> structured extraction -> LLM reasoning -> summarized insights.
+## Objective
+Use LLMs to add reasoning, summarization, extraction, and policy interpretation on top of speech pipelines.
 
-## 22.2 Guardrails
-- schema validation
-- evidence-backed outputs
-- policy and privacy checks
+## Integration Patterns
+- Transcript cleanup and structure normalization
+- Intent/entity extraction with chain-of-thought hidden from users
+- Policy-aware response recommendations
+- Multi-turn summarization and action item extraction
 
-## 22.3 Use Cases
-call summarization, intent extraction, coaching recommendations.
+## Guardrails
+- Constrain output with schemas and validators
+- Ground critical outputs in transcript spans
+- Route uncertain outputs for human review
+- Enforce prompt/version management for reproducibility
 
-## 22.4 Real-Time Example
-LLM produces post-call summary and next-best-action notes with strict JSON schema.
+## Real-Time Example
+An enterprise helpdesk uses LLM post-processing to generate structured “issue, root cause, next action” cards during calls, reducing wrap-up time.
 
+## SLP3 Coverage Mapping
+- Ch. 7 LLM fundamentals
+- Ch. 8 transformer foundations
+- Ch. 10 post-training and alignment concepts
