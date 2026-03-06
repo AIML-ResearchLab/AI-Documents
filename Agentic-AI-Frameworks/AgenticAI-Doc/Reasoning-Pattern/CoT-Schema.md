@@ -598,5 +598,4 @@ if __name__ == "__main__":
     )
 
     print(planner_trace.model_dump_json(indent=2))
-    ```
-
+```
