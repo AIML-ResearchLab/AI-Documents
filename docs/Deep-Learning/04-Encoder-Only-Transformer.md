@@ -179,7 +179,7 @@ Where:
 
 For each token:
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 **What are Q, K, V?**
 
@@ -198,7 +198,7 @@ For each token:
 
 **Step-by-Step Breakdown**
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 - Multiply Query with all Keys
 - This gives **how much each word relates to others**
@@ -215,7 +215,7 @@ If model is processing `"sat"`, it checks:
 
 👉 Result = **attention scores matrix**
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 - Prevents values from becoming too large
 - Stabilizes training
@@ -224,7 +224,7 @@ If model is processing `"sat"`, it checks:
 
 - Large dot products → softmax becomes too sharp → bad gradients
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 - Converts scores into **probabilities**
 - All values between 0 and 1
@@ -239,7 +239,7 @@ If model is processing `"sat"`, it checks:
 | the   | 0.1   |
 
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 - Now we **combine actual information**
 - Each token contributes based on importance
@@ -253,9 +253,9 @@ If model is processing `"sat"`, it checks:
 
 ## Final Summary
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 Suppose sentence is:
 
@@ -312,7 +312,7 @@ It is a learnable lookup table that converts tokens (words) into vectors.
 
 **Formal Definition**
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 Where:
 
@@ -326,7 +326,7 @@ Where:
 
 So:
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 **What Does Each Row Mean?**
 
@@ -378,7 +378,7 @@ Think of **E like a dictionary**:
 
 So:
 
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 Huge matrix 🚀
 
@@ -395,59 +395,59 @@ We will use the sentence:
 
 **"The cat sat"**
 
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
-![alt text](image-14.png)
+![alt text](images/image-14.png)
 
-![alt text](image-15.png)
+![alt text](images/image-15.png)
 
-![alt text](image-16.png)
+![alt text](images/image-16.png)
 
-![alt text](image-17.png)
+![alt text](images/image-17.png)
 
-![alt text](image-18.png)
+![alt text](images/image-18.png)
 
-![alt text](image-19.png)
+![alt text](images/image-19.png)
 
-![alt text](image-20.png)
+![alt text](images/image-20.png)
 
-![alt text](image-21.png)
+![alt text](images/image-21.png)
 
-![alt text](image-22.png)
+![alt text](images/image-22.png)
 
-![alt text](image-23.png)
+![alt text](images/image-23.png)
 
-![alt text](image-24.png)
+![alt text](images/image-24.png)
 
-![alt text](image-25.png)
+![alt text](images/image-25.png)
 
-![alt text](image-26.png)
+![alt text](images/image-26.png)
 
-![alt text](image-27.png)
+![alt text](images/image-27.png)
 
-![alt text](image-28.png)
+![alt text](images/image-28.png)
 
-![alt text](image-29.png)
+![alt text](images/image-29.png)
 
-![alt text](image-30.png)
+![alt text](images/image-30.png)
 
-![alt text](image-31.png)
+![alt text](images/image-31.png)
 
-![alt text](image-32.png)
+![alt text](images/image-32.png)
 
-![alt text](image-33.png)
+![alt text](images/image-33.png)
 
-![alt text](image-34.png)
+![alt text](images/image-34.png)
 
-![alt text](image-35.png)
+![alt text](images/image-35.png)
 
-![alt text](image-36.png)
+![alt text](images/image-36.png)
 
 
 ## 16) Tiny PyTorch example

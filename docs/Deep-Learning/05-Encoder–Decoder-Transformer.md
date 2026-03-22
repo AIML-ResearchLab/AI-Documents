@@ -2,7 +2,7 @@
 
 An Encoder–Decoder Transformer is a deep learning architecture used for sequence-to-sequence (Seq2Seq) tasks — where input and output are both sequences but may differ in length.
 
-![alt text](image-120.png)
+![alt text](images/image-120.png)
 
 👉 Example tasks:
 

@@ -27,49 +27,49 @@ So:
 
 Otherwise the model would cheat.
 
-![alt text](image-64.png)
+![alt text](images/image-64.png)
 
-![alt text](image-65.png)
+![alt text](images/image-65.png)
 
-![alt text](image-66.png)
+![alt text](images/image-66.png)
 
-![alt text](image-67.png)
+![alt text](images/image-67.png)
 
-![alt text](image-68.png)
+![alt text](images/image-68.png)
 
-![alt text](image-69.png)
+![alt text](images/image-69.png)
 
-![alt text](image-70.png)
+![alt text](images/image-70.png)
 
-![alt text](image-71.png)
+![alt text](images/image-71.png)
 
-![alt text](image-72.png)
+![alt text](images/image-72.png)
 
-![alt text](image-73.png)
+![alt text](images/image-73.png)
 
-![alt text](image-74.png)
+![alt text](images/image-74.png)
 
-![alt text](image-75.png)
+![alt text](images/image-75.png)
 
-![alt text](image-76.png)
+![alt text](images/image-76.png)
 
-![alt text](image-77.png)
+![alt text](images/image-77.png)
 
-![alt text](image-78.png)
+![alt text](images/image-78.png)
 
-![alt text](image-79.png)
+![alt text](images/image-79.png)
 
-![alt text](image-80.png)
+![alt text](images/image-80.png)
 
-![alt text](image-81.png)
+![alt text](images/image-81.png)
 
-![alt text](image-82.png)
+![alt text](images/image-82.png)
 
-![alt text](image-83.png)
+![alt text](images/image-83.png)
 
-![alt text](image-84.png)
+![alt text](images/image-84.png)
 
-![alt text](image-85.png)
+![alt text](images/image-85.png)
 
 ## PyTorch-style code
 
@@ -123,11 +123,11 @@ print("Weights:\n", weights)
 print("Output:\n", output)
 ```
 
-![alt text](image-86.png)
+![alt text](images/image-86.png)
 
-![alt text](image-87.png)
+![alt text](images/image-87.png)
 
-![alt text](image-88.png)
+![alt text](images/image-88.png)
 
-![alt text](image-89.png)
+![alt text](images/image-89.png)
 

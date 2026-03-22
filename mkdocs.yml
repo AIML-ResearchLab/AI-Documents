@@ -16,7 +16,7 @@ exclude_docs: |
   Thumbs.db
 
 watch:
-  - stylesheets/extra.css
+  - docs/stylesheets/extra.css
 
 validation:
   omitted_files: warn

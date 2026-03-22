@@ -1,6 +1,6 @@
 # What is a decoder-only GPT block?
 
-![alt text](image-90.png)
+![alt text](images/image-90.png)
 
 ## 2) Full GPT pipeline overview
 
@@ -10,58 +10,58 @@ For input sentence:
 
 the decoder-only GPT flow is:
 
-![alt text](image-91.png)
+![alt text](images/image-91.png)
 
 
-![alt text](image-92.png)
+![alt text](images/image-92.png)
 
-![alt text](image-93.png)
+![alt text](images/image-93.png)
 
-![alt text](image-94.png)
+![alt text](images/image-94.png)
 
-![alt text](image-95.png)
+![alt text](images/image-95.png)
 
-![alt text](image-96.png)
+![alt text](images/image-96.png)
 
-![alt text](image-97.png)
+![alt text](images/image-97.png)
 
-![alt text](image-98.png)
+![alt text](images/image-98.png)
 
-![alt text](image-99.png)
+![alt text](images/image-99.png)
 
-![alt text](image-100.png)
+![alt text](images/image-100.png)
 
-![alt text](image-101.png)
+![alt text](images/image-101.png)
 
-![alt text](image-102.png)
+![alt text](images/image-102.png)
 
-![alt text](image-103.png)
+![alt text](images/image-103.png)
 
-![alt text](image-104.png)
+![alt text](images/image-104.png)
 
-![alt text](image-105.png)
+![alt text](images/image-105.png)
 
-![alt text](image-106.png)
+![alt text](images/image-106.png)
 
-![alt text](image-107.png)
+![alt text](images/image-107.png)
 
-![alt text](image-108.png)
+![alt text](images/image-108.png)
 
-![alt text](image-109.png)
+![alt text](images/image-109.png)
 
-![alt text](image-110.png)
+![alt text](images/image-110.png)
 
-![alt text](image-111.png)
+![alt text](images/image-111.png)
 
-![alt text](image-112.png)
+![alt text](images/image-112.png)
 
-![alt text](image-113.png)
+![alt text](images/image-113.png)
 
-![alt text](image-114.png)
+![alt text](images/image-114.png)
 
-![alt text](image-115.png)
+![alt text](images/image-115.png)
 
-![alt text](image-116.png)
+![alt text](images/image-116.png)
 
 ## 25) Complete block structure diagram
 
@@ -99,12 +99,12 @@ Next-token probabilities
 
 ## 26) Very important role of each part
 
-![alt text](image-117.png)
+![alt text](images/image-117.png)
 
 
-![alt text](image-118.png)
+![alt text](images/image-118.png)
 
-![alt text](image-119.png)
+![alt text](images/image-119.png)
 
 ## 28) Tiny PyTorch-style GPT block
 

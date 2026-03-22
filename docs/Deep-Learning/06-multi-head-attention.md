@@ -14,56 +14,56 @@ So instead of one attention calculation, transformer uses **multiple heads in pa
 
 Each head has its own:
 
-![alt text](image-37.png)
+![alt text](images/image-37.png)
 
 So each head can learn a different pattern.
 
-![alt text](image-38.png)
+![alt text](images/image-38.png)
 
-![alt text](image-39.png)
+![alt text](images/image-39.png)
 
-![alt text](image-40.png)
-![alt text](image-41.png)
+![alt text](images/image-40.png)
+![alt text](images/image-41.png)
 
-![alt text](image-42.png)
+![alt text](images/image-42.png)
 
-![alt text](image-43.png)
-![alt text](image-44.png)
+![alt text](images/image-43.png)
+![alt text](images/image-44.png)
 
-![alt text](image-45.png)
+![alt text](images/image-45.png)
 
-![alt text](image-46.png)
+![alt text](images/image-46.png)
 
 
-![alt text](image-47.png)
+![alt text](images/image-47.png)
 
-![alt text](image-48.png)
+![alt text](images/image-48.png)
 
-![alt text](image-49.png)
+![alt text](images/image-49.png)
 
-![alt text](image-50.png)
+![alt text](images/image-50.png)
 
-![alt text](image-51.png)
+![alt text](images/image-51.png)
 
-![alt text](image-52.png)
+![alt text](images/image-52.png)
 
-![alt text](image-53.png)
+![alt text](images/image-53.png)
 
-![alt text](image-54.png)
+![alt text](images/image-54.png)
 
-![alt text](image-55.png)
+![alt text](images/image-55.png)
 
-![alt text](image-56.png)
+![alt text](images/image-56.png)
 
-![alt text](image-57.png)
+![alt text](images/image-57.png)
 
-![alt text](image-58.png)
+![alt text](images/image-58.png)
 
-![alt text](image-59.png)
+![alt text](images/image-59.png)
 
-![alt text](image-60.png)
+![alt text](images/image-60.png)
 
-![alt text](image-61.png)
+![alt text](images/image-61.png)
 
 ## Tiny PyTorch example
 
@@ -146,8 +146,8 @@ print("Concatenated:\n", concat)
 print("Final output:\n", final_out)
 ```
 
-![alt text](image-62.png)
+![alt text](images/image-62.png)
 
-![alt text](image-63.png)
+![alt text](images/image-63.png)
 
 
