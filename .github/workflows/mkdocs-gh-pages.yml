@@ -29,6 +29,7 @@ jobs:
         with:
           python-version: "3.x"
           cache: pip
+          cache-dependency-path: requirements-mkdocs.txt
 
       - name: Install MkDocs dependencies
         run: |
