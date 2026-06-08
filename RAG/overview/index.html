@@ -1,0 +1,5500 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive AI, Agentic AI, MLOps, and LLMOps learning hub.">
+      
+      
+        <meta name="author" content="AIML Research Lab">
+      
+      
+        <link rel="canonical" href="https://aiml-researchlab.github.io/AI-Documents/RAG/overview/">
+      
+      
+        <link rel="prev" href="../../Python/overview/">
+      
+      
+        <link rel="next" href="../../Statistic/overview/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Overview - AI-Documents</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-retrieval-augmented-generation-rag" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://aiml-researchlab.github.io/AI-Documents/" title="AI-Documents" class="md-header__button md-logo" aria-label="AI-Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI-Documents
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIML-ResearchLab/AI-Documents" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIML-ResearchLab/AI-Documents
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI-Documents Hub
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Agentic-AI/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Agentic AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Capstone-Project/Neuro-Digital-Twin/Generate-Synthetic-Data/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Capstone Project
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Computer-Vision/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Vision
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Deep-Learning/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Deep Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GEN-AI/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  GEN AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../LLM/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  LLM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Machine-Learning/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Microsoft-Copilot/microsoft-copilot-studio/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Microsoft Copilot
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../NLP/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  NLP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Prompt-Engineering/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Prompt Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Python/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RAG
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Statistic/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Vector-Database/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Vector Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../simulation/Agent-based-modeling/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Simulation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://aiml-researchlab.github.io/AI-Documents/" title="AI-Documents" class="md-nav__button md-logo" aria-label="AI-Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI-Documents
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIML-ResearchLab/AI-Documents" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIML-ResearchLab/AI-Documents
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-Documents Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Agentic-AI/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Capstone Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neuro Digital Twin
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Neuro Digital Twin
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Capstone-Project/Neuro-Digital-Twin/Generate-Synthetic-Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generate Synthetic Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Capstone-Project/Neuro-Digital-Twin/neuro-digital-twin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clinical Brain Twin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Vision
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Vision
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer-Vision/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deep-Learning/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GEN AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GEN AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GEN-AI/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Machine-Learning/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Copilot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Microsoft Copilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Microsoft-Copilot/microsoft-copilot-studio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is Microsoft Copilot Studio?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Microsoft-Copilot/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NLP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NLP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompt Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Prompt-Engineering/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-retrieval-augmented-generation-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Retrieval-Augmented Generation (RAG)?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-rag-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How RAG works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components-of-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components of RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-of-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working of RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-niche-chunking-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced / Niche Chunking Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#most-common-file-types-in-production-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Common File Types in Production RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-production-architecture-most-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real Production Architecture (Most Common)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actual-top-production-combination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actual Top Production Combination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieval-metrics-most-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval Metrics (Most Important)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounding-hallucination-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounding / Hallucination Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chunking-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunking Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedding-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedding Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-ranking-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-ranking Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-ai-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic AI Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-performance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM Performance Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure-system-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure &amp; System Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-experience-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Experience Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-governance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security &amp; Governance Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-modal-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Modal Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benchmark Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Business KPIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#most-important-metrics-used-in-real-enterprise-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Important Metrics Used in Real Enterprise RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-enterprise-evaluation-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Enterprise Evaluation Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groundedness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groundedness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-enterprise-groundedness-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Enterprise Groundedness Prompt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faithfulness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faithfulness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hallucination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hallucination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-faithfulness-metric-cosine-similarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Faithfulness Metric (Cosine Similarity)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-correctness-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Correctness Metric
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-groundedness-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Groundedness Metric
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hallucination-rate-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hallucination Rate Metric
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-answer-relevancy-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Answer Relevancy Metric
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-combined-rag-evaluation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Combined RAG Evaluation Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistic/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vector Database
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vector-Database/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Simulation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation/Agent-based-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent based modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation/Discrete-event-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discrete event simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation/Hidden-Markov-Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hidden Markov Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation/Monte-Carlo-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monte Carlo method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation/System-dynamic-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System dynamic modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    AI-Documents Hub
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    RAG
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AIML-ResearchLab/AI-Documents/edit/master/RAG/overview.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/AIML-ResearchLab/AI-Documents/raw/master/RAG/overview.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+  <h1>Overview</h1>
+
+<h2 id="what-is-retrieval-augmented-generation-rag">What Is Retrieval-Augmented Generation (RAG)?<a class="headerlink" href="#what-is-retrieval-augmented-generation-rag" title="Permanent link">&para;</a></h2>
+<p>Retrieval-Augmented Generation (RAG) is an advanced paradigm in natural language processing that combines the strengths of retrieval-based methods and large generative language models (LLMs). By grounding the generation process in external knowledge sources, RAG significantly improves response accuracy, reduces model hallucinations and enables domain-adaptive, knowledge-intensive applications.</p>
+<p>Retrieval-Augmented Generation (RAG) is a way to make AI answers more reliable by combining searching for relevant information and then generating a response. Instead of guessing based only on old training data, it first finds useful data from external sources (like documents or databases) and then uses it to give a better answer.</p>
+<ol>
+<li><strong>Retrieval</strong> → finding relevant information from external sources</li>
+<li><strong>Generation</strong> → using a large language model (LLM) to produce an answer based on that information</li>
+</ol>
+<p>It helps AI systems answer questions using up-to-date or domain-specific knowledge instead of relying only on what was learned during training.</p>
+<p><strong>Simple analogy</strong></p>
+<p>Think of RAG like an “open-book exam”:</p>
+<ul>
+<li>A normal LLM answers from memory.</li>
+<li>A RAG system first <strong>looks up relevant documents</strong>, then answers using those documents.</li>
+</ul>
+<h2 id="how-rag-works">How RAG works<a class="headerlink" href="#how-rag-works" title="Permanent link">&para;</a></h2>
+<p>Typical pipeline:</p>
+<ol>
+<li>
+<p><strong>User asks a question</strong></p>
+<ul>
+<li><code>What’s our company refund policy?</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Retriever searches knowledge sources</strong></p>
+<ul>
+<li><code>PDFs</code></li>
+<li><code>databases</code></li>
+<li><code>websites</code></li>
+<li><code>internal docs</code></li>
+<li><code>vector databases</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Relevant chunks are returned</strong></p>
+<ul>
+<li><code>Example: policy paragraphs about refunds</code></li>
+</ul>
+</li>
+<li>
+<p><strong>LLM generates the response</strong></p>
+<ul>
+<li><code>It uses the retrieved content as context</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="components-of-rag">Components of RAG<a class="headerlink" href="#components-of-rag" title="Permanent link">&para;</a></h2>
+<p>The main components of RAG are:</p>
+<ol>
+<li>
+<p><strong>External Knowledge Source:</strong> Stores domain specific or general information like documents, APIs or databases.</p>
+</li>
+<li>
+<p><strong>Text Chunking and Preprocessing:</strong> Breaks large text into smaller, manageable chunks and cleans it for consistency.</p>
+</li>
+<li>
+<p><strong>Embedding Model:</strong> Converts text into numerical vectors that capture semantic meaning.</p>
+</li>
+<li>
+<p><strong>Vector Database:</strong> Stores embeddings and enables similarity search for fast information retrieval.</p>
+</li>
+<li>
+<p><strong>Query Encoder:</strong> Transforms the user’s query into a vector for comparison with stored embeddings.</p>
+</li>
+<li>
+<p><strong>Retriever:</strong> Finds and returns the most relevant chunks from the database based on query similarity.</p>
+</li>
+<li>
+<p><strong>Prompt Augmentation Layer:</strong> Combines retrieved chunks with the user’s query to provide context to the LLM.</p>
+</li>
+<li>
+<p><strong>LLM (Generator):</strong> Generates a grounded response using both the query and retrieved knowledge.</p>
+</li>
+</ol>
+<h2 id="working-of-rag">Working of RAG<a class="headerlink" href="#working-of-rag" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../image.png" /></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Chunking Type</th>
+<th>Description</th>
+<th>Chunk Unit</th>
+<th>Best File/Data Types</th>
+<th>Enterprise Use Cases</th>
+<th>LangChain Support</th>
+<th>External Tools/Common Integrations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Character Chunking</td>
+<td>Fixed-size splitting by character count</td>
+<td>Characters</td>
+<td>TXT, logs, raw text</td>
+<td>Simple RAG, log analysis</td>
+<td>Native</td>
+<td>None</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Word Chunking</td>
+<td>Splits by number of words</td>
+<td>Words</td>
+<td>TXT, chat data</td>
+<td>NLP preprocessing</td>
+<td>Custom</td>
+<td>NLTK, SpaCy</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Line Chunking</td>
+<td>Splits line by line</td>
+<td>Lines</td>
+<td>Logs, CSV-like text</td>
+<td>Monitoring systems</td>
+<td>Custom</td>
+<td>None</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Token Chunking</td>
+<td>Splits by LLM token count</td>
+<td>Tokens</td>
+<td>LLM-ready text</td>
+<td>GPT/Claude/Llama systems</td>
+<td>Native</td>
+<td>tiktoken</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Recursive Chunking</td>
+<td>Recursive separator-based splitting</td>
+<td>Paragraph/sentence</td>
+<td>PDFs, DOCX</td>
+<td>Enterprise RAG</td>
+<td>Native</td>
+<td>None</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sentence Chunking</td>
+<td>Splits using sentence boundaries</td>
+<td>Sentences</td>
+<td>Legal, medical docs</td>
+<td>Research AI</td>
+<td>Partial</td>
+<td>NLTK, SpaCy</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Paragraph Chunking</td>
+<td>Splits by paragraph structure</td>
+<td>Paragraphs</td>
+<td>Articles, books</td>
+<td>Knowledge bases</td>
+<td>Custom</td>
+<td>None</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Semantic Chunking</td>
+<td>Embedding similarity-based splitting</td>
+<td>Semantic blocks</td>
+<td>Long enterprise docs</td>
+<td>High-accuracy RAG</td>
+<td>Experimental</td>
+<td>LlamaIndex, Haystack</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Topic-Based Chunking</td>
+<td>Topic modeling driven chunking</td>
+<td>Topics</td>
+<td>Research papers</td>
+<td>Analytics AI</td>
+<td>Custom</td>
+<td>BERTopic, LDA</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Adaptive Chunking</td>
+<td>Dynamic chunk sizes based on content</td>
+<td>Variable</td>
+<td>Mixed enterprise data</td>
+<td>Agentic RAG</td>
+<td>Custom</td>
+<td>LangGraph</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Agentic Chunking</td>
+<td>LLM determines chunk boundaries</td>
+<td>Variable</td>
+<td>Complex data</td>
+<td>Autonomous AI agents</td>
+<td>Custom</td>
+<td>LangGraph, CrewAI</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Sliding Window Chunking</td>
+<td>Overlapping chunk windows</td>
+<td>Overlapping text</td>
+<td>Long context docs</td>
+<td>Continuity preservation</td>
+<td>Native</td>
+<td>None</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Parent-Child Chunking</td>
+<td>Small retrieval chunks linked to larger parent chunks</td>
+<td>Parent/child docs</td>
+<td>Manuals, KBs</td>
+<td>Enterprise retrieval</td>
+<td>Native</td>
+<td>None</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Hierarchical Chunking</td>
+<td>Multi-level chunk tree structure</td>
+<td>Sections/subsections</td>
+<td>Books, large docs</td>
+<td>Multi-hop retrieval</td>
+<td>Partial</td>
+<td>LlamaIndex</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Metadata-Aware Chunking</td>
+<td>Chunking influenced by metadata</td>
+<td>Metadata groups</td>
+<td>Enterprise docs</td>
+<td>Governance/compliance</td>
+<td>Custom</td>
+<td>Vector DB metadata</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Query-Aware Chunking</td>
+<td>Optimized for expected user queries</td>
+<td>Query-focused blocks</td>
+<td>FAQ, support docs</td>
+<td>Customer support AI</td>
+<td>Custom</td>
+<td>RAG evaluators</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Retrieval-Optimized Chunking</td>
+<td>Designed for vector DB performance</td>
+<td>Optimized chunks</td>
+<td>Any enterprise data</td>
+<td>Recall@K optimization</td>
+<td>Custom</td>
+<td>Pinecone, Weaviate</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Compression Chunking</td>
+<td>Summarized hierarchical chunks</td>
+<td>Compressed summaries</td>
+<td>Large corpora</td>
+<td>Long-context AI</td>
+<td>Custom</td>
+<td>LangGraph</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Structure-Aware Chunking</td>
+<td>Uses document structure</td>
+<td>Sections/headers</td>
+<td>DOCX, PDFs</td>
+<td>Documentation AI</td>
+<td>Partial</td>
+<td>Unstructured</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Layout-Aware Chunking</td>
+<td>Uses visual layout coordinates</td>
+<td>Layout blocks</td>
+<td>Scanned PDFs</td>
+<td>Invoice/report AI</td>
+<td>External</td>
+<td>LayoutParser, Docling</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Markdown Chunking</td>
+<td>Uses markdown hierarchy</td>
+<td>Markdown headers</td>
+<td>README, docs</td>
+<td>Technical documentation</td>
+<td>Native</td>
+<td>None</td>
+</tr>
+<tr>
+<td>22</td>
+<td>HTML/DOM Chunking</td>
+<td>Uses webpage DOM structure</td>
+<td>HTML sections</td>
+<td>Websites</td>
+<td>Web chatbots</td>
+<td>Partial</td>
+<td>BeautifulSoup</td>
+</tr>
+<tr>
+<td>23</td>
+<td>XML Chunking</td>
+<td>XML tree-aware splitting</td>
+<td>XML nodes</td>
+<td>XML configs</td>
+<td>Enterprise integrations</td>
+<td>Custom</td>
+<td>lxml</td>
+</tr>
+<tr>
+<td>24</td>
+<td>JSON Chunking</td>
+<td>Schema/path-aware splitting</td>
+<td>JSON objects</td>
+<td>APIs, FHIR</td>
+<td>Structured RAG</td>
+<td>Custom</td>
+<td>jq, pydantic</td>
+</tr>
+<tr>
+<td>25</td>
+<td>YAML Chunking</td>
+<td>YAML structure-aware chunking</td>
+<td>YAML blocks</td>
+<td>DevOps configs</td>
+<td>CI/CD AI</td>
+<td>Custom</td>
+<td>PyYAML</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Table-Aware Chunking</td>
+<td>Specialized handling for tables</td>
+<td>Rows/cells</td>
+<td>Excel, CSV</td>
+<td>BI/financial AI</td>
+<td>External</td>
+<td>Camelot, Tabula</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Spreadsheet Chunking</td>
+<td>Workbook/sheet-aware splitting</td>
+<td>Sheets/tables</td>
+<td>XLSX, ODS</td>
+<td>Reporting AI</td>
+<td>External</td>
+<td>openpyxl, pandas</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Code Chunking</td>
+<td>AST/function-aware splitting</td>
+<td>Functions/classes</td>
+<td>Source code</td>
+<td>Copilot/code AI</td>
+<td>Native</td>
+<td>tree-sitter</td>
+</tr>
+<tr>
+<td>29</td>
+<td>AST-Based Chunking</td>
+<td>Abstract syntax tree parsing</td>
+<td>AST nodes</td>
+<td>Codebases</td>
+<td>Static analysis AI</td>
+<td>External</td>
+<td>tree-sitter</td>
+</tr>
+<tr>
+<td>30</td>
+<td>API Schema Chunking</td>
+<td>OpenAPI/Swagger-aware chunking</td>
+<td>Endpoints/schemas</td>
+<td>API specs</td>
+<td>API copilots</td>
+<td>Custom</td>
+<td>Swagger parsers</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Graph Chunking</td>
+<td>Graph neighborhood splitting</td>
+<td>Nodes/edges</td>
+<td>Knowledge graphs</td>
+<td>GraphRAG</td>
+<td>External</td>
+<td>Neo4j</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Knowledge Unit Chunking</td>
+<td>Fact/entity-level chunking</td>
+<td>Facts/entities</td>
+<td>Enterprise KBs</td>
+<td>Fact-grounded AI</td>
+<td>Custom</td>
+<td>RDF/SPARQL</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Entity-Centric Chunking</td>
+<td>Entity relationship-based chunks</td>
+<td>Entities</td>
+<td>CRM/EHR data</td>
+<td>Relationship AI</td>
+<td>Custom</td>
+<td>spaCy, Neo4j</td>
+</tr>
+<tr>
+<td>34</td>
+<td>OCR Chunking</td>
+<td>OCR text block segmentation</td>
+<td>OCR blocks</td>
+<td>Scanned images</td>
+<td>Digitization AI</td>
+<td>External</td>
+<td>Tesseract</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Image-Aware Chunking</td>
+<td>Region/object-aware chunking</td>
+<td>Image regions</td>
+<td>Medical images</td>
+<td>Vision RAG</td>
+<td>External</td>
+<td>MONAI, OpenCV</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Multi-Modal Chunking</td>
+<td>Combines text/image/audio/video</td>
+<td>Multi-modal units</td>
+<td>Mixed media</td>
+<td>Enterprise multimodal AI</td>
+<td>Partial</td>
+<td>LlamaIndex</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Audio Chunking</td>
+<td>Audio semantic segmentation</td>
+<td>Audio segments</td>
+<td>Calls, podcasts</td>
+<td>Voice AI</td>
+<td>External</td>
+<td>Whisper</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Speaker-Aware Chunking</td>
+<td>Splits by speaker changes</td>
+<td>Speaker turns</td>
+<td>Meetings, calls</td>
+<td>Contact center AI</td>
+<td>External</td>
+<td>Pyannote</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Video Chunking</td>
+<td>Scene/frame-aware splitting</td>
+<td>Scenes</td>
+<td>Videos</td>
+<td>Surveillance/search AI</td>
+<td>External</td>
+<td>PySceneDetect</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Time-Series Chunking</td>
+<td>Temporal window segmentation</td>
+<td>Time windows</td>
+<td>IoT, ECG</td>
+<td>Monitoring AI</td>
+<td>Custom</td>
+<td>pandas</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Event-Based Chunking</td>
+<td>Splits around events</td>
+<td>Events</td>
+<td>Logs, SIEM</td>
+<td>Incident AI</td>
+<td>Custom</td>
+<td>ELK, Splunk</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Log Chunking</td>
+<td>Structured log segmentation</td>
+<td>Log groups</td>
+<td>DevOps logs</td>
+<td>Observability AI</td>
+<td>Custom</td>
+<td>Fluentd</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Conversation Chunking</td>
+<td>Dialogue/session-aware splitting</td>
+<td>Conversations</td>
+<td>Chat/email</td>
+<td>Conversational AI</td>
+<td>Custom</td>
+<td>LangGraph</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Email Thread Chunking</td>
+<td>Email chain grouping</td>
+<td>Threads</td>
+<td>Emails</td>
+<td>Enterprise support AI</td>
+<td>Custom</td>
+<td>Outlook/Gmail APIs</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Session-Based Chunking</td>
+<td>User-session-aware chunking</td>
+<td>Sessions</td>
+<td>User activity streams</td>
+<td>Behavioral AI</td>
+<td>Custom</td>
+<td>Kafka</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Stream Chunking</td>
+<td>Incremental real-time chunking</td>
+<td>Streaming windows</td>
+<td>Kafka streams</td>
+<td>Real-time AI</td>
+<td>Custom</td>
+<td>Kafka, Flink</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Incremental Chunking</td>
+<td>Updates chunks incrementally</td>
+<td>Delta chunks</td>
+<td>Continuously changing docs</td>
+<td>Live KB systems</td>
+<td>Custom</td>
+<td>Delta Lake</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Hybrid Chunking</td>
+<td>Combination of multiple chunkers</td>
+<td>Hybrid units</td>
+<td>Enterprise mixed data</td>
+<td>Advanced RAG</td>
+<td>Custom</td>
+<td>LangGraph</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Security-Aware Chunking</td>
+<td>Splits based on security classification</td>
+<td>Security domains</td>
+<td>Regulated data</td>
+<td>Compliance AI</td>
+<td>Custom</td>
+<td>DLP systems</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Domain-Specific Chunking</td>
+<td>Customized for industry schemas</td>
+<td>Domain objects</td>
+<td>Healthcare, banking</td>
+<td>Industry AI</td>
+<td>Custom</td>
+<td>FHIR, HL7</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Medical Imaging Chunking</td>
+<td>MRI/CT region segmentation</td>
+<td>Anatomical regions</td>
+<td>DICOM images</td>
+<td>Neuro digital twin</td>
+<td>External</td>
+<td>MONAI</td>
+</tr>
+<tr>
+<td>52</td>
+<td>CAD/Engineering Chunking</td>
+<td>Engineering drawing segmentation</td>
+<td>Diagram regions</td>
+<td>CAD files</td>
+<td>Manufacturing AI</td>
+<td>External</td>
+<td>OpenCascade</td>
+</tr>
+<tr>
+<td>53</td>
+<td>GIS/Spatial Chunking</td>
+<td>Geo-spatial partitioning</td>
+<td>Spatial tiles</td>
+<td>Maps/GIS</td>
+<td>Location intelligence</td>
+<td>External</td>
+<td>GeoPandas</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Slide-Aware Chunking</td>
+<td>PPT slide-level chunking</td>
+<td>Slides</td>
+<td>PPT/PPTX</td>
+<td>Presentation AI</td>
+<td>External</td>
+<td>python-pptx</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Document Section Chunking</td>
+<td>Chapter/section splitting</td>
+<td>Sections</td>
+<td>Books/manuals</td>
+<td>Long-form retrieval</td>
+<td>Partial</td>
+<td>Unstructured</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Citation-Aware Chunking</td>
+<td>Keeps references linked to content</td>
+<td>Citation groups</td>
+<td>Research papers</td>
+<td>Academic AI</td>
+<td>Custom</td>
+<td>Semantic Scholar APIs</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Regulatory Chunking</td>
+<td>Policy/control-aware chunking</td>
+<td>Clauses/controls</td>
+<td>Compliance docs</td>
+<td>GRC AI</td>
+<td>Custom</td>
+<td>Policy parsers</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Financial Statement Chunking</td>
+<td>Statement-aware segmentation</td>
+<td>Financial sections</td>
+<td>Annual reports</td>
+<td>Finance AI</td>
+<td>External</td>
+<td>SEC parsers</td>
+</tr>
+<tr>
+<td>59</td>
+<td>EHR/FHIR Chunking</td>
+<td>Healthcare schema-aware chunking</td>
+<td>Clinical records</td>
+<td>EHR/FHIR JSON/XML</td>
+<td>Healthcare RAG</td>
+<td>Custom</td>
+<td>HL7/FHIR tools</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Knowledge Graph Hybrid Chunking</td>
+<td>Combines semantic + graph retrieval</td>
+<td>Entity-context groups</td>
+<td>Enterprise knowledge systems</td>
+<td>GraphRAG enterprise AI</td>
+<td>External</td>
+<td>Neo4j + LangChain</td>
+</tr>
+</tbody>
+</table>
+<h2 id="advanced-niche-chunking-types">Advanced / Niche Chunking Types<a class="headerlink" href="#advanced-niche-chunking-types" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Chunking Type</th>
+<th>Description</th>
+<th>Typical Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>61</td>
+<td>Attention-Aware Chunking</td>
+<td>Uses transformer attention patterns to decide chunk boundaries</td>
+<td>Advanced LLM optimization</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Perplexity-Based Chunking</td>
+<td>Splits where language-model perplexity changes significantly</td>
+<td>Research NLP systems</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Reinforcement-Learned Chunking</td>
+<td>RL model learns optimal chunk strategy</td>
+<td>Experimental agentic AI</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Cognitive Chunking</td>
+<td>Mimics human reading/comprehension patterns</td>
+<td>Cognitive AI research</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Memory-Augmented Chunking</td>
+<td>Chunking linked with AI memory systems</td>
+<td>Long-term AI agents</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Retrieval Feedback Chunking</td>
+<td>Chunk strategy optimized using retrieval evaluation feedback</td>
+<td>Self-improving RAG</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Embedding Drift-Aware Chunking</td>
+<td>Detects semantic drift across embeddings</td>
+<td>Continually evolving KBs</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Delta / Diff Chunking</td>
+<td>Only changed content is chunked/indexed</td>
+<td>Versioned documents</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Version-Aware Chunking</td>
+<td>Tracks chunk lineage across versions</td>
+<td>Git/document history</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Temporal Knowledge Chunking</td>
+<td>Preserves time-validity of facts</td>
+<td>Financial/legal AI</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Causal Chunking</td>
+<td>Preserves causal relationships</td>
+<td>Scientific AI</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Workflow-Aware Chunking</td>
+<td>Chunks according to business workflows</td>
+<td>BPM/ERP systems</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Ontology-Aware Chunking</td>
+<td>Uses enterprise ontology hierarchy</td>
+<td>Semantic enterprise AI</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Taxonomy-Aware Chunking</td>
+<td>Uses taxonomy classifications</td>
+<td>Product catalogs</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Policy-Aware Chunking</td>
+<td>Segments based on governance boundaries</td>
+<td>Compliance AI</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Federated Chunking</td>
+<td>Distributed chunking across systems/data centers</td>
+<td>Large-scale enterprise AI</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Privacy-Preserving Chunking</td>
+<td>Sensitive-data isolation during chunking</td>
+<td>HIPAA/GDPR systems</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Encryption-Aware Chunking</td>
+<td>Chunking compatible with encrypted retrieval</td>
+<td>Secure RAG</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Vector Density Chunking</td>
+<td>Optimized based on embedding-space density</td>
+<td>Vector DB optimization</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Multi-Hop Retrieval Chunking</td>
+<td>Designed for graph/multi-hop reasoning</td>
+<td>Agentic GraphRAG</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Reasoning-Step Chunking</td>
+<td>Preserves chain-of-thought structure</td>
+<td>Reasoning agents</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Tool-Aware Chunking</td>
+<td>Optimized for agent tool selection</td>
+<td>Agentic systems</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Simulation-State Chunking</td>
+<td>State-based chunking for simulations/digital twins</td>
+<td>Neuro/industrial twins</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Sensor Fusion Chunking</td>
+<td>Combines multimodal sensor streams</td>
+<td>Autonomous systems</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Edge-Aware Chunking</td>
+<td>Lightweight chunking for edge devices</td>
+<td>IoT AI</td>
+</tr>
+<tr>
+<td>86</td>
+<td>GPU-Optimized Chunking</td>
+<td>Chunk sizing optimized for GPU inference</td>
+<td>High-performance AI</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Batch Retrieval Chunking</td>
+<td>Optimized for large concurrent retrieval</td>
+<td>Enterprise-scale RAG</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Cache-Aware Chunking</td>
+<td>Improves semantic cache hit rates</td>
+<td>Low-latency AI</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Hierarchical Semantic Graph Chunking</td>
+<td>Combines semantic + hierarchical + graph chunking</td>
+<td>Advanced GraphRAG</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Autonomous Self-Rechunking</td>
+<td>System dynamically re-chunks based on usage patterns</td>
+<td>Self-evolving AI systems</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Chunking Type Used in Production</th>
+<th>Approx Enterprise Adoption %</th>
+<th>Typical Data/File Types</th>
+<th>Common Industries</th>
+<th>Why It’s Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Recursive Character Chunking</td>
+<td>85–90%</td>
+<td>PDF, DOCX, TXT, Confluence, SharePoint, KB docs</td>
+<td>All industries</td>
+<td>Simple, stable, good retrieval quality</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Token-Based Chunking</td>
+<td>80–85%</td>
+<td>LLM text, chat history, PDFs</td>
+<td>GenAI platforms</td>
+<td>Prevents token overflow</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sliding Window / Overlap Chunking</td>
+<td>75–80%</td>
+<td>Long documents, manuals</td>
+<td>Enterprise RAG</td>
+<td>Preserves context continuity</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Semantic Chunking</td>
+<td>55–70%</td>
+<td>Research docs, healthcare, banking</td>
+<td>Advanced AI enterprises</td>
+<td>Better semantic retrieval</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Metadata-Aware Chunking</td>
+<td>50–65%</td>
+<td>Enterprise documents, tickets, KBs</td>
+<td>Banking, ITSM, healthcare</td>
+<td>Improves filtering/governance</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Parent-Child Chunking</td>
+<td>45–60%</td>
+<td>Large manuals, policies, SOPs</td>
+<td>Banking, ERP, insurance</td>
+<td>Better retrieval + context</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Structure/Header-Aware Chunking</td>
+<td>45–55%</td>
+<td>DOCX, Markdown, PDFs</td>
+<td>Documentation platforms</td>
+<td>Keeps hierarchy intact</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Table-Aware Chunking</td>
+<td>35–50%</td>
+<td>Excel, CSV, reports</td>
+<td>Finance, ERP, analytics</td>
+<td>Critical for structured data</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Layout-Aware Chunking</td>
+<td>30–45%</td>
+<td>Complex/scanned PDFs</td>
+<td>Insurance, legal, healthcare</td>
+<td>Needed for OCR/layout docs</td>
+</tr>
+<tr>
+<td>10</td>
+<td>HTML/DOM Chunking</td>
+<td>30–40%</td>
+<td>Websites, portals, HTML docs</td>
+<td>ERP/helpdesk/chatbots</td>
+<td>Maintains webpage structure</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Code-Aware Chunking</td>
+<td>25–40%</td>
+<td>Source code repositories</td>
+<td>DevOps/software companies</td>
+<td>Preserves functions/classes</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Markdown Chunking</td>
+<td>20–35%</td>
+<td>README, GitHub docs</td>
+<td>Developer platforms</td>
+<td>Technical documentation</td>
+</tr>
+<tr>
+<td>13</td>
+<td>JSON/XML Schema-Aware Chunking</td>
+<td>20–30%</td>
+<td>APIs, configs, FHIR</td>
+<td>Healthcare, SaaS</td>
+<td>Structured retrieval</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Event-Based Chunking</td>
+<td>15–25%</td>
+<td>Logs, SIEM events</td>
+<td>DevOps/SRE/SOC</td>
+<td>Incident correlation</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Conversation/Thread Chunking</td>
+<td>15–25%</td>
+<td>Emails, chats, call transcripts</td>
+<td>Support/contact centers</td>
+<td>Preserves conversational flow</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Multi-Modal Chunking</td>
+<td>10–20%</td>
+<td>Image + text + audio</td>
+<td>Healthcare, media</td>
+<td>Modern multimodal AI</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Graph-Based Chunking</td>
+<td>8–15%</td>
+<td>Knowledge graphs</td>
+<td>Large enterprises</td>
+<td>Multi-hop reasoning</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Time-Series Chunking</td>
+<td>8–15%</td>
+<td>IoT, telemetry, ECG</td>
+<td>Manufacturing, healthcare</td>
+<td>Temporal analytics</td>
+</tr>
+<tr>
+<td>19</td>
+<td>OCR-Based Chunking</td>
+<td>8–12%</td>
+<td>Scanned docs/images</td>
+<td>BFSI, government</td>
+<td>Legacy document processing</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Adaptive/Dynamic Chunking</td>
+<td>5–10%</td>
+<td>Mixed enterprise datasets</td>
+<td>AI-first enterprises</td>
+<td>Better optimization</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Audio Chunking</td>
+<td>5–10%</td>
+<td>Calls, meetings</td>
+<td>Contact center AI</td>
+<td>Voice intelligence</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Video Chunking</td>
+<td>3–8%</td>
+<td>CCTV, training videos</td>
+<td>Security/media</td>
+<td>Scene retrieval</td>
+</tr>
+<tr>
+<td>23</td>
+<td>GraphRAG Hybrid Chunking</td>
+<td>3–7%</td>
+<td>Enterprise knowledge systems</td>
+<td>Advanced AI orgs</td>
+<td>Complex reasoning</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Agentic Chunking</td>
+<td>2–5%</td>
+<td>Autonomous AI systems</td>
+<td>Research/advanced AI</td>
+<td>Dynamic AI orchestration</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Attention/RL-Based Chunking</td>
+<td>&lt;1%</td>
+<td>Experimental AI workloads</td>
+<td>Research labs</td>
+<td>Experimental optimization</td>
+</tr>
+</tbody>
+</table>
+<h2 id="most-common-file-types-in-production-rag">Most Common File Types in Production RAG<a class="headerlink" href="#most-common-file-types-in-production-rag" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File Type</th>
+<th>Enterprise Usage %</th>
+<th>Typical Chunking Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDF</td>
+<td>90%+</td>
+<td>Recursive + semantic + layout-aware</td>
+</tr>
+<tr>
+<td>DOCX</td>
+<td>75%+</td>
+<td>Structure-aware + recursive</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>70%+</td>
+<td>Character/token</td>
+</tr>
+<tr>
+<td>HTML/Web Pages</td>
+<td>60%+</td>
+<td>DOM-aware</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td>50%+</td>
+<td>Header-aware</td>
+</tr>
+<tr>
+<td>Excel/CSV</td>
+<td>45%+</td>
+<td>Table-aware</td>
+</tr>
+<tr>
+<td>JSON/XML</td>
+<td>40%+</td>
+<td>Schema-aware</td>
+</tr>
+<tr>
+<td>Emails</td>
+<td>35%+</td>
+<td>Thread-aware</td>
+</tr>
+<tr>
+<td>Source Code</td>
+<td>30%+</td>
+<td>Code-aware</td>
+</tr>
+<tr>
+<td>PPT/PPTX</td>
+<td>25%+</td>
+<td>Slide-aware</td>
+</tr>
+<tr>
+<td>Images/Scanned PDFs</td>
+<td>20%+</td>
+<td>OCR/layout-aware</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>10%+</td>
+<td>Speaker/topic-aware</td>
+</tr>
+<tr>
+<td>Video</td>
+<td>5%+</td>
+<td>Scene-aware</td>
+</tr>
+<tr>
+<td>IoT/Telemetry</td>
+<td>5%+</td>
+<td>Time-series/event</td>
+</tr>
+</tbody>
+</table>
+<h2 id="real-production-architecture-most-common">Real Production Architecture (Most Common)<a class="headerlink" href="#real-production-architecture-most-common" title="Permanent link">&para;</a></h2>
+<p>Document Loader
+      ↓
+OCR/Layout Parsing (if needed)
+      ↓
+Recursive Chunking
+      ↓
+Metadata Enrichment
+      ↓
+Optional Semantic Chunking
+      ↓
+Embedding
+      ↓
+Vector DB
+      ↓
+Hybrid Retrieval
+      ↓
+Re-ranking
+      ↓
+LLM</p>
+<h2 id="actual-top-production-combination">Actual Top Production Combination<a class="headerlink" href="#actual-top-production-combination" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Enterprise Maturity</th>
+<th>Common Chunking Stack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beginner RAG</td>
+<td>Recursive + overlap</td>
+</tr>
+<tr>
+<td>Intermediate RAG</td>
+<td>Recursive + metadata</td>
+</tr>
+<tr>
+<td>Advanced Enterprise RAG</td>
+<td>Semantic + parent-child + metadata</td>
+</tr>
+<tr>
+<td>FAANG/Hyperscale</td>
+<td>Layout-aware + semantic + GraphRAG + adaptive</td>
+</tr>
+</tbody>
+</table>
+<h2 id="retrieval-metrics-most-important">Retrieval Metrics (Most Important)<a class="headerlink" href="#retrieval-metrics-most-important" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recall@K</td>
+<td>Relevant documents retrieved in top K</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Precision@K</td>
+<td>Relevant docs among retrieved docs</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Hit Rate</td>
+<td>At least one relevant chunk retrieved</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>MRR (Mean Reciprocal Rank)</td>
+<td>Rank quality of first correct result</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>MAP (Mean Average Precision)</td>
+<td>Overall ranking quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>NDCG</td>
+<td>Ranking quality considering relevance scores</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Top-K Accuracy</td>
+<td>Correct chunk appears in top K</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Retrieval Accuracy</td>
+<td>Correct retrieval percentage</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Context Recall</td>
+<td>Relevant context retrieved</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Context Precision</td>
+<td>Retrieved context relevance</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Semantic Similarity Score</td>
+<td>Query ↔ chunk similarity</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Retriever Latency</td>
+<td>Retrieval response time</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Failed Retrieval Rate</td>
+<td>Queries with no useful retrieval</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Empty Retrieval Rate</td>
+<td>No chunks returned</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Duplicate Chunk Rate</td>
+<td>Duplicate retrieved chunks</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Retrieval Coverage</td>
+<td>KB coverage during retrieval</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Noise Ratio</td>
+<td>Irrelevant retrieval percentage</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Retrieval Diversity</td>
+<td>Diversity of retrieved chunks</td>
+<td>Balanced</td>
+</tr>
+<tr>
+<td>Hybrid Search Accuracy</td>
+<td>BM25 + vector quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Re-ranking Gain</td>
+<td>Improvement after reranking</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="generation-metrics">Generation Metrics<a class="headerlink" href="#generation-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Answer Correctness</td>
+<td>Accuracy of generated answer</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Answer Relevance</td>
+<td>Relevance to user query</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Answer Completeness</td>
+<td>Missing information measure</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Coherence</td>
+<td>Logical readability</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Fluency</td>
+<td>Grammar/natural language quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Consistency</td>
+<td>No contradictions</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Conciseness</td>
+<td>Avoid unnecessary verbosity</td>
+<td>Balanced</td>
+</tr>
+<tr>
+<td>Toxicity Score</td>
+<td>Harmful content probability</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Safety Score</td>
+<td>Safe response quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Instruction Adherence</td>
+<td>Follows prompt instructions</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Helpfulness</td>
+<td>User usefulness rating</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Factual Accuracy</td>
+<td>Fact correctness</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Readability Score</td>
+<td>Human readability</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Response Diversity</td>
+<td>Variation across outputs</td>
+<td>Balanced</td>
+</tr>
+<tr>
+<td>Response Stability</td>
+<td>Consistency across runs</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="grounding-hallucination-metrics">Grounding / Hallucination Metrics<a class="headerlink" href="#grounding-hallucination-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Faithfulness</td>
+<td>Answer grounded in retrieved docs</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Groundedness</td>
+<td>Supported by source context</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Hallucination Rate</td>
+<td>Unsupported/generated facts</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Citation Accuracy</td>
+<td>Correct source attribution</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Attribution Score</td>
+<td>Traceability to sources</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Unsupported Claim Rate</td>
+<td>Claims not in retrieval</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Context Utilization</td>
+<td>How much retrieved context used</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Source Consistency</td>
+<td>Agreement with source docs</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Evidence Match Score</td>
+<td>Evidence-answer alignment</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Fabrication Rate</td>
+<td>Invented entities/facts</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chunking-metrics">Chunking Metrics<a class="headerlink" href="#chunking-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chunk Relevance</td>
+<td>Chunk usefulness</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Chunk Coherence</td>
+<td>Semantic continuity</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Chunk Density</td>
+<td>Information per chunk</td>
+<td>Balanced</td>
+</tr>
+<tr>
+<td>Chunk Overlap Efficiency</td>
+<td>Useful overlap percentage</td>
+<td>Balanced</td>
+</tr>
+<tr>
+<td>Chunk Redundancy</td>
+<td>Duplicate info across chunks</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Chunk Coverage</td>
+<td>Document coverage quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Average Chunk Size</td>
+<td>Tokens/chars per chunk</td>
+<td>Optimized</td>
+</tr>
+<tr>
+<td>Context Fragmentation</td>
+<td>Broken semantic continuity</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Semantic Boundary Accuracy</td>
+<td>Correct semantic splitting</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Retrieval-to-Chunk Alignment</td>
+<td>Retrieval precision per chunk</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="embedding-metrics">Embedding Metrics<a class="headerlink" href="#embedding-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedding Similarity</td>
+<td>Semantic closeness</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Vector Drift</td>
+<td>Embedding consistency over time</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Embedding Latency</td>
+<td>Time to generate embeddings</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Embedding Dimensionality Efficiency</td>
+<td>Performance vs vector size</td>
+<td>Optimized</td>
+</tr>
+<tr>
+<td>Cluster Separation</td>
+<td>Distinct semantic groups</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Intra-cluster Similarity</td>
+<td>Similarity within group</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Inter-cluster Distance</td>
+<td>Difference between groups</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>ANN Recall</td>
+<td>Approx nearest neighbor quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Vector Compression Loss</td>
+<td>Loss after quantization</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<h2 id="re-ranking-metrics">Re-ranking Metrics<a class="headerlink" href="#re-ranking-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross-Encoder Accuracy</td>
+<td>Re-ranker precision</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Re-ranking Latency</td>
+<td>Re-rank speed</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Ranking Improvement Score</td>
+<td>Improvement after reranking</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>NDCG Improvement</td>
+<td>Ranking enhancement</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Pairwise Ranking Accuracy</td>
+<td>Correct pair ordering</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agentic-ai-metrics">Agentic AI Metrics<a class="headerlink" href="#agentic-ai-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tool Selection Accuracy</td>
+<td>Correct tool chosen</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Task Completion Rate</td>
+<td>Successfully completed tasks</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Planning Accuracy</td>
+<td>Quality of agent plan</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Multi-Agent Coordination Score</td>
+<td>Collaboration quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Autonomous Success Rate</td>
+<td>Independent task success</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Recovery Success Rate</td>
+<td>Recovery after failure</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Memory Recall Accuracy</td>
+<td>Correct memory retrieval</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Reflection Quality</td>
+<td>Self-correction quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Agent Latency</td>
+<td>Agent response speed</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<h2 id="llm-performance-metrics">LLM Performance Metrics<a class="headerlink" href="#llm-performance-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tokens/sec</td>
+<td>Inference throughput</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>TTFT (Time to First Token)</td>
+<td>Initial response delay</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Completion Latency</td>
+<td>Full response time</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Context Window Utilization</td>
+<td>Efficient context use</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Prompt Efficiency</td>
+<td>Quality vs prompt size</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Token Efficiency</td>
+<td>Useful output/token</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>GPU Utilization</td>
+<td>Hardware efficiency</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Inference Cost</td>
+<td>Cost per request</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<h2 id="infrastructure-system-metrics">Infrastructure &amp; System Metrics<a class="headerlink" href="#infrastructure-system-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Latency</td>
+<td>End-to-end response time</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>Requests/sec</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Uptime percentage</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Error Rate</td>
+<td>Failed requests</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Cache Hit Rate</td>
+<td>Cache efficiency</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Vector DB Query Time</td>
+<td>Search speed</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>CPU Utilization</td>
+<td>Resource efficiency</td>
+<td>Balanced</td>
+</tr>
+<tr>
+<td>GPU Memory Usage</td>
+<td>Memory efficiency</td>
+<td>Optimized</td>
+</tr>
+<tr>
+<td>Concurrent User Capacity</td>
+<td>Scalability</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Queue Wait Time</td>
+<td>Processing delay</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cost-metrics">Cost Metrics<a class="headerlink" href="#cost-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost per Query</td>
+<td>Total query cost</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Embedding Cost</td>
+<td>Vector generation cost</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Storage Cost</td>
+<td>Vector DB storage</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>GPU Cost</td>
+<td>Inference hardware cost</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Token Cost</td>
+<td>LLM token spending</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Re-ranking Cost</td>
+<td>Cross-encoder cost</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-experience-metrics">User Experience Metrics<a class="headerlink" href="#user-experience-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSAT</td>
+<td>Customer satisfaction</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>User Retention</td>
+<td>Continued usage</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Query Success Rate</td>
+<td>User got desired answer</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Feedback Score</td>
+<td>User ratings</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Escalation Rate</td>
+<td>Human handoff frequency</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Session Duration</td>
+<td>Engagement</td>
+<td>Contextual</td>
+</tr>
+<tr>
+<td>Click-through Rate</td>
+<td>Interaction engagement</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-governance-metrics">Security &amp; Governance Metrics<a class="headerlink" href="#security-governance-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PII Leakage Rate</td>
+<td>Sensitive data exposure</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Prompt Injection Success Rate</td>
+<td>Jailbreak success</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Access Control Violations</td>
+<td>Unauthorized access</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Compliance Adherence</td>
+<td>GDPR/HIPAA alignment</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Audit Traceability</td>
+<td>Traceable operations</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Data Lineage Accuracy</td>
+<td>Source tracking</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="multi-modal-metrics">Multi-Modal Metrics<a class="headerlink" href="#multi-modal-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OCR Accuracy</td>
+<td>Correct text extraction</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Image Caption Accuracy</td>
+<td>Visual understanding</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Audio Transcription Accuracy</td>
+<td>Speech-to-text quality</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Video Scene Retrieval Accuracy</td>
+<td>Relevant scene retrieval</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Multi-modal Alignment Score</td>
+<td>Alignment across modalities</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="benchmark-metrics">Benchmark Metrics<a class="headerlink" href="#benchmark-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MTEB</td>
+<td>Embedding benchmark</td>
+</tr>
+<tr>
+<td>BEIR</td>
+<td>Retrieval benchmark</td>
+</tr>
+<tr>
+<td>HELM</td>
+<td>Holistic LLM evaluation</td>
+</tr>
+<tr>
+<td>RAGAS</td>
+<td>RAG evaluation</td>
+</tr>
+<tr>
+<td>DeepEval</td>
+<td>LLM evaluation</td>
+</tr>
+<tr>
+<td>TruthfulQA</td>
+<td>Hallucination benchmark</td>
+</tr>
+<tr>
+<td>HumanEval</td>
+<td>Code generation</td>
+</tr>
+<tr>
+<td>GSM8K</td>
+<td>Reasoning/math</td>
+</tr>
+<tr>
+<td>SWE-Bench</td>
+<td>Software engineering agents</td>
+</tr>
+</tbody>
+</table>
+<h2 id="business-kpis">Business KPIs<a class="headerlink" href="#business-kpis" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SLA Compliance</td>
+<td>Meets support SLA</td>
+</tr>
+<tr>
+<td>Ticket Deflection Rate</td>
+<td>Reduced support tickets</td>
+</tr>
+<tr>
+<td>Productivity Gain</td>
+<td>Time saved</td>
+</tr>
+<tr>
+<td>Resolution Time Reduction</td>
+<td>Faster issue solving</td>
+</tr>
+<tr>
+<td>Knowledge Reuse Rate</td>
+<td>KB usage</td>
+</tr>
+<tr>
+<td>Revenue Impact</td>
+<td>Financial value</td>
+</tr>
+<tr>
+<td>Operational Cost Reduction</td>
+<td>Reduced enterprise cost</td>
+</tr>
+<tr>
+<td>Employee Efficiency</td>
+<td>Productivity improvement</td>
+</tr>
+</tbody>
+</table>
+<h2 id="most-important-metrics-used-in-real-enterprise-rag">Most Important Metrics Used in Real Enterprise RAG<a class="headerlink" href="#most-important-metrics-used-in-real-enterprise-rag" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Recall@K</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Precision@K</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Faithfulness</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Groundedness</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Hallucination Rate</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Answer Correctness</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Context Relevance</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Latency</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Cost per Query</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Retrieval Accuracy</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-enterprise-evaluation-stack">Common Enterprise Evaluation Stack<a class="headerlink" href="#common-enterprise-evaluation-stack" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Retrieval Metrics
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>       +
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Grounding Metrics
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>       +
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Generation Metrics
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>       +
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Latency Metrics
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>       +
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Cost Metrics
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>       +
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Human Evaluation
+</span></code></pre></div>
+<h2 id="groundedness">Groundedness<a class="headerlink" href="#groundedness" title="Permanent link">&para;</a></h2>
+<p><strong>Groundedness</strong></p>
+<ul>
+<li>
+<p><strong>Focuses on:</strong> <code>Did the answer come from retrieved documents?</code></p>
+</li>
+<li>
+<p><code>LLM Judge = evaluator</code></p>
+</li>
+<li><code>Groundedness Score = evaluation result</code></li>
+</ul>
+<p><strong>What Generates the Score?</strong></p>
+<p>The judge model generates it using:</p>
+<ul>
+<li>reasoning</li>
+<li>semantic understanding</li>
+<li>context comparison</li>
+<li>hallucination detection</li>
+</ul>
+<h2 id="common-enterprise-groundedness-prompt">Common Enterprise Groundedness Prompt<a class="headerlink" href="#common-enterprise-groundedness-prompt" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>You are an AI evaluator.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Question:
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>{question}
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Retrieved Context:
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>{context}
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Generated Answer:
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>{answer}
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Evaluate whether the answer is fully supported by the retrieved context.
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Return:
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>1. Groundedness score (0-1)
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>2. Unsupported claims
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>3. Explanation
+</span></code></pre></div>
+<h2 id="faithfulness">Faithfulness<a class="headerlink" href="#faithfulness" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Focuses on:</strong> <code>Did the answer stay true to the retrieved documents?</code></li>
+</ul>
+<p><strong>Example</strong></p>
+<p><strong>Retrieved Context:</strong> <code>The refund period is 30 days.</code></p>
+<p><strong>Answer:</strong> <code>Refund period is 30 days.</code></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Groundedness</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Faithfulness</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hallucinated Example</strong></p>
+<p><strong>Retrieved Context:</strong> <code>Refund period is 30 days.</code></p>
+<p><strong>Answer:</strong> <code>Refund period is 60 days.</code></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Groundedness</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Faithfulness</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Difference</strong></p>
+<p><strong>Groundedness</strong> </p>
+<p><strong>Checks:</strong> <code>Was answer grounded in retrieved evidence?</code></p>
+<p><strong>Main concern:</strong></p>
+<ul>
+<li>retrieval support</li>
+</ul>
+<p><strong>Faithfulness</strong></p>
+<p><strong>Checks:</strong> <code>Did answer preserve factual truth from context?</code></p>
+<p><strong>Main concern:</strong></p>
+<ul>
+<li>factual consistency</li>
+</ul>
+<p><strong>Analysis</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Groundedness</td>
+<td>High (based on context)</td>
+</tr>
+<tr>
+<td>Faithfulness</td>
+<td>Medium-high (less precise wording)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hallucination">Hallucination<a class="headerlink" href="#hallucination" title="Permanent link">&para;</a></h2>
+<p>What is Hallucination Rate?</p>
+<p>Hallucination Rate measures: <code>How often the LLM generates information NOT supported by evidence or reality.</code></p>
+<p>In RAG systems, hallucination usually means:</p>
+<ul>
+<li>unsupported claims</li>
+<li>invented facts</li>
+<li>wrong numbers</li>
+<li>fake citations</li>
+<li>fabricated entities</li>
+</ul>
+<p><strong>Basic Formula</strong></p>
+<div class="arithmatex">\[
+\text{Hallucination Rate} = \frac{\text{Hallucinated Outputs}}{\text{Total Outputs}}
+\]</div>
+<p><strong>Percentage Formula</strong></p>
+<div class="arithmatex">\[
+\text{Hallucination Rate (%)} =
+\left(
+\frac{\text{Hallucinated Outputs}}
+{\text{Total Outputs}}
+\right) \times 100
+\]</div>
+<p><strong>Example</strong></p>
+<table>
+<thead>
+<tr>
+<th>Answer</th>
+<th>Hallucinated?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Answer 1</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Answer 2</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Answer 3</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Answer 4</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hallucination Rate:</strong></p>
+<div class="arithmatex">\[
+\frac{2}{4} = 0.5*100 = 50%
+\]</div>
+<p>The hallucination rate is 50%.</p>
+<p><strong>Example Judge Prompt</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are an evaluator.
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Question:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>{question}
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Retrieved Context:
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>{context}
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Generated Answer:
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>{answer}
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Identify unsupported claims.
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>Return:
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>- hallucination detected (true/false)
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>- hallucination score (0-1)
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>- explanation
+</span></code></pre></div>
+<h2 id="1-faithfulness-metric-cosine-similarity">1. Faithfulness Metric (Cosine Similarity)<a class="headerlink" href="#1-faithfulness-metric-cosine-similarity" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from sentence_transformers import SentenceTransformer
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>from sklearn.metrics.pairwise import cosine_similarity
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># Load embedding model
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>model = SentenceTransformer(&#39;all-MiniLM-L6-v2&#39;)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Retrieved context
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>context = &quot;&quot;&quot;
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>France is a country in Europe.
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Paris is the capital of France.
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>&quot;&quot;&quot;
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a># Generated answer
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>answer = &quot;Paris is the capital city of France.&quot;
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a># Generate embeddings
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>context_embedding = model.encode([context])
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>answer_embedding = model.encode([answer])
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a># Calculate cosine similarity
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>faithfulness_score = cosine_similarity(
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    context_embedding,
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    answer_embedding
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>)[0][0]
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>print(&quot;Faithfulness Score:&quot;, round(faithfulness_score, 4))
+</span></code></pre></div>
+<h2 id="2-correctness-metric">2. Correctness Metric<a class="headerlink" href="#2-correctness-metric" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>from sentence_transformers import SentenceTransformer
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from sklearn.metrics.pairwise import cosine_similarity
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>model = SentenceTransformer(&#39;all-MiniLM-L6-v2&#39;)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a># Ground truth answer
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>ground_truth = &quot;Paris is the capital of France.&quot;
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a># Generated answer
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>generated_answer = &quot;Paris is France&#39;s capital city.&quot;
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a># Embeddings
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>gt_embedding = model.encode([ground_truth])
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>gen_embedding = model.encode([generated_answer])
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a># Similarity
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>correctness_score = cosine_similarity(
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    gt_embedding,
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    gen_embedding
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>)[0][0]
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>print(&quot;Correctness Score:&quot;, round(correctness_score, 4))
+</span></code></pre></div>
+<h2 id="3-groundedness-metric">3. Groundedness Metric<a class="headerlink" href="#3-groundedness-metric" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>from sentence_transformers import SentenceTransformer
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>from sklearn.metrics.pairwise import cosine_similarity
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>import nltk
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>nltk.download(&#39;punkt&#39;)
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>model = SentenceTransformer(&#39;all-MiniLM-L6-v2&#39;)
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a># Retrieved context
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>context = &quot;&quot;&quot;
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>Python is a programming language created by Guido van Rossum in 1991.
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>&quot;&quot;&quot;
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a># Generated answer
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>answer = &quot;&quot;&quot;
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>Python was created by Guido van Rossum in 1991.
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>&quot;&quot;&quot;
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a># Split answer into sentences
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>sentences = nltk.sent_tokenize(answer)
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>supported = 0
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a># Context embedding
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>context_embedding = model.encode([context])
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>for sentence in sentences:
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    sentence_embedding = model.encode([sentence])
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>    similarity = cosine_similarity(
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>        sentence_embedding,
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>        context_embedding
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    )[0][0]
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>    print(f&quot;Sentence: {sentence}&quot;)
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    print(f&quot;Similarity: {similarity:.4f}&quot;)
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>    if similarity &gt; 0.80:
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>        supported += 1
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a># Groundedness score
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>groundedness_score = supported / len(sentences)
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>print(&quot;\nGroundedness Score:&quot;, round(groundedness_score, 4))
+</span></code></pre></div>
+<h2 id="4-hallucination-rate-metric">4. Hallucination Rate Metric<a class="headerlink" href="#4-hallucination-rate-metric" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>from sentence_transformers import SentenceTransformer
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>from sklearn.metrics.pairwise import cosine_similarity
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>import nltk
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>nltk.download(&#39;punkt&#39;)
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>model = SentenceTransformer(&#39;all-MiniLM-L6-v2&#39;)
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a># Retrieved context
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>context = &quot;&quot;&quot;
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Python was created by Guido van Rossum.
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>&quot;&quot;&quot;
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a># Generated answer
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>answer = &quot;&quot;&quot;
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>Python was created by Guido van Rossum in California in 1991.
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>&quot;&quot;&quot;
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a># Sentence split
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>sentences = nltk.sent_tokenize(answer)
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>unsupported = 0
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>context_embedding = model.encode([context])
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>for sentence in sentences:
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    sentence_embedding = model.encode([sentence])
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>    similarity = cosine_similarity(
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>        sentence_embedding,
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>        context_embedding
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>    )[0][0]
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>    print(f&quot;Sentence: {sentence}&quot;)
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>    print(f&quot;Similarity: {similarity:.4f}&quot;)
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>    if similarity &lt; 0.80:
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>        unsupported += 1
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a># Hallucination rate
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>hallucination_rate = (
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>    unsupported / len(sentences)
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>) * 100
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>print(&quot;\nHallucination Rate:&quot;, round(hallucination_rate, 2), &quot;%&quot;)
+</span></code></pre></div>
+<h2 id="5-answer-relevancy-metric">5. Answer Relevancy Metric<a class="headerlink" href="#5-answer-relevancy-metric" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>from sentence_transformers import SentenceTransformer
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>from sklearn.metrics.pairwise import cosine_similarity
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>model = SentenceTransformer(&#39;all-MiniLM-L6-v2&#39;)
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a># User query
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>query = &quot;What is Kubernetes?&quot;
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a># Generated answer
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>answer = &quot;&quot;&quot;
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>Kubernetes is an open-source container orchestration platform.
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>&quot;&quot;&quot;
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a># Embeddings
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>query_embedding = model.encode([query])
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>answer_embedding = model.encode([answer])
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a># Similarity
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>relevancy_score = cosine_similarity(
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    query_embedding,
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    answer_embedding
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>)[0][0]
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>print(&quot;Answer Relevancy Score:&quot;, round(relevancy_score, 4))
+</span></code></pre></div>
+<h2 id="6-combined-rag-evaluation-script">6. Combined RAG Evaluation Script<a class="headerlink" href="#6-combined-rag-evaluation-script" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>from sentence_transformers import SentenceTransformer
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>from sklearn.metrics.pairwise import cosine_similarity
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>model = SentenceTransformer(&#39;all-MiniLM-L6-v2&#39;)
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a># Inputs
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>query = &quot;Who invented Python?&quot;
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>retrieved_context = &quot;&quot;&quot;
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>Python was invented by Guido van Rossum.
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>&quot;&quot;&quot;
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>generated_answer = &quot;&quot;&quot;
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>Python was invented by Guido van Rossum in 1991.
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>&quot;&quot;&quot;
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>ground_truth = &quot;&quot;&quot;
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>Python was invented by Guido van Rossum.
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>&quot;&quot;&quot;
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a># Embeddings
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>query_emb = model.encode([query])
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>context_emb = model.encode([retrieved_context])
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>answer_emb = model.encode([generated_answer])
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>truth_emb = model.encode([ground_truth])
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a># Faithfulness
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>faithfulness = cosine_similarity(
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>    context_emb,
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>    answer_emb
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>)[0][0]
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a># Correctness
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>correctness = cosine_similarity(
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>    truth_emb,
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>    answer_emb
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>)[0][0]
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a># Relevancy
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>relevancy = cosine_similarity(
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>    query_emb,
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>    answer_emb
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>)[0][0]
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>print(&quot;\n===== RAG Evaluation =====&quot;)
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>print(&quot;Faithfulness :&quot;, round(faithfulness, 4))
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>print(&quot;Correctness  :&quot;, round(correctness, 4))
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>print(&quot;Relevancy    :&quot;, round(relevancy, 4))
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 8, 2026 08:54:47 UTC"><span class="timeago" datetime="2026-06-08T08:54:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 8, 2026 08:54:47 UTC">2026-06-08</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 8, 2026 08:54:47 UTC"><span class="timeago" datetime="2026-06-08T08:54:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 8, 2026 08:54:47 UTC">2026-06-08</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../Python/overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Statistic/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) AI-Documents
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/AIML-ResearchLab/AI-Documents" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.footnote.tooltips", "content.tabs.link", "content.tooltips", "header.autohide", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
