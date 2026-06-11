@@ -2,94 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Agentic-AI/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Capstone-Project/Neuro-Digital-Twin/Generate-Synthetic-Data/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Capstone-Project/Neuro-Digital-Twin/neuro-digital-twin/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Computer-Vision/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
+    </url>
+    <url>
+         <loc>https://aiml-researchlab.github.io/AI-Documents/Deep-Learning/Ensemble/</loc>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Deep-Learning/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/GEN-AI/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/LLM/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Machine-Learning/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Microsoft-Copilot/microsoft-copilot-studio/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Microsoft-Copilot/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/NLP/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Prompt-Engineering/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Python/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/RAG/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Statistic/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/Vector-Database/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/simulation/Agent-based-modeling/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/simulation/Discrete-event-simulation/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/simulation/Hidden-Markov-Model/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/simulation/Monte-Carlo-method/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/simulation/System-dynamic-modeling/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
     <url>
          <loc>https://aiml-researchlab.github.io/AI-Documents/simulation/overview/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-11</lastmod>
     </url>
 </urlset>
