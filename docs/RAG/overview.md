@@ -253,7 +253,7 @@ LLM
 | ---------------------------- | -------------------------------------------- | --------------- |
 | Recall@K                     | Relevant documents retrieved in top K        | Higher          |
 | Precision@K                  | Relevant docs among retrieved docs           | Higher          |
-| Hit Rate                     | At least one relevant chunk retrieved        | Higher          |
+| Hit Rate@K                     | At least one relevant chunk retrieved        | Higher          |
 | MRR (Mean Reciprocal Rank)   | Rank quality of first correct result         | Higher          |
 | MAP (Mean Average Precision) | Overall ranking quality                      | Higher          |
 | NDCG                         | Ranking quality considering relevance scores | Higher          |
@@ -914,5 +914,71 @@ print("Correctness  :", round(correctness, 4))
 print("Relevancy    :", round(relevancy, 4))
 ```
 
+## Operational Metrics
+
+| Metric                       | Formula                                    | What it Measures                  | Target           |
+| ---------------------------- | ------------------------------------------ | --------------------------------- | ---------------- |
+| **Retrieval Latency**        | `Retrieve End Time − Retrieve Start Time`  | Time to fetch documents           | < 500 ms         |
+| **Generation Latency**       | `LLM Response End − LLM Request Start`     | Time LLM takes to generate answer | < 3–10 sec       |
+| **End-to-End Latency**       | `Final Response Time − User Request Time`  | Total response time               | < 5–15 sec       |
+| **Throughput**               | `Total Requests / Time Period`             | Processing capacity               | Higher is better |
+| **QPS (Queries Per Second)** | `Total Queries / Total Seconds`            | Concurrent serving capability     | Depends on SLA   |
+| **Cost per Query**           | `Total AI Cost / Number of Queries`        | Financial efficiency              | Lower is better  |
+| **Token Usage**              | `Input Tokens + Output Tokens`             | Consumption of LLM tokens         | Optimize         |
+| **Availability**             | `(Uptime / Total Time) × 100`              | Service uptime                    | 99.9%+           |
+| **Error Rate**               | `(Failed Requests / Total Requests) × 100` | Reliability                       | < 1%             |
+| **Cache Hit Rate**           | `(Cache Hits / Total Requests) × 100`      | Cache effectiveness               | Higher is better |
+
+
+## RAG Chunking Strategies by File Type (2026 Enterprise Guide)
+
+Choosing the right chunking strategy based on file type is critical for retrieval quality. The same chunking approach should not be used for PDFs, images, source code, spreadsheets, and emails.
+
+| File Type                                   | Examples                     | Recommended Chunking Strategy           | Why                                             |
+| ------------------------------------------- | ---------------------------- | --------------------------------------- | ----------------------------------------------- |
+| **PDF (.pdf)**                              | Policies, contracts, reports | **Parent-Child + Recursive + Metadata** | Preserve structure and retrieve broader context |
+| **Word (.docx)**                            | HR documents, SOPs           | **Header + Parent-Child**               | Documents usually contain sections/headings     |
+| **PowerPoint (.pptx)**                      | Presentations                | **Slide-Based Chunking**                | Each slide is a logical unit                    |
+| **Excel (.xlsx)**                           | Reports, tabular data        | **Record-Based + Sheet Metadata**       | Rows are natural chunks                         |
+| **CSV (.csv)**                              | Structured datasets          | **Record-Based Chunking**               | One row = one chunk                             |
+| **JSON (.json)**                            | APIs, logs                   | **Object-Based Chunking**               | One JSON object = one chunk                     |
+| **XML (.xml)**                              | Configuration files          | **Tag-Based Chunking**                  | Preserve XML hierarchy                          |
+| **Markdown (.md)**                          | Wikis, docs                  | **Header-Based Chunking**               | Use `#`, `##`, `###` sections                   |
+| **HTML (.html)**                            | Websites                     | **DOM/Header-Based Chunking**           | Use `<h1>`, `<h2>`, `<article>`                 |
+| **TXT (.txt)**                              | Plain text                   | **Recursive Character Chunking**        | No inherent structure                           |
+| **Email (.eml, .msg)**                      | Emails                       | **Conversation Thread Chunking**        | Preserve email chains                           |
+| **Source Code (.py, .java, .js, .go, .cs)** | Applications                 | **Function/Class Chunking**             | Maintain code boundaries                        |
+| **SQL (.sql)**                              | Stored procedures            | **Statement-Based Chunking**            | One procedure/query = chunk                     |
+| **YAML (.yaml)**                            | Configurations               | **Section-Based Chunking**              | Split by top-level keys                         |
+| **TOML (.toml)**                            | Configurations               | **Section-Based Chunking**              | Preserve configuration groups                   |
+| **INI (.ini)**                              | Configurations               | **Section-Based Chunking**              | Use `[section]` blocks                          |
+| **Log Files (.log)**                        | Application logs             | **Time Window Chunking**                | Group events by timeframe                       |
+| **JSONL (.jsonl)**                          | Event streams                | **Record-Based Chunking**               | One event per chunk                             |
+| **JPG (.jpg)**                              | Scanned docs, photos         | **OCR + Layout-Based Chunking**         | Extract text and regions                        |
+| **PNG (.png)**                              | Screenshots                  | **OCR + Region Chunking**               | Capture logical sections                        |
+| **TIFF (.tiff)**                            | Scanned forms                | **OCR + Form-Aware Chunking**           | Preserve fields                                 |
+| **BMP (.bmp)**                              | Images                       | **OCR-Based Chunking**                  | Similar to JPG                                  |
+| **SVG (.svg)**                              | Diagrams                     | **Element-Based Chunking**              | Extract labels/components                       |
+| **Audio (.mp3, .wav)**                      | Calls, meetings              | **Speaker + Time-Based Chunking**       | Preserve speaker context                        |
+| **Video (.mp4, .avi)**                      | Recordings                   | **Transcript + Scene Chunking**         | Combine scenes and transcript                   |
+| **Subtitles (.srt)**                        | Captions                     | **Time-Based Chunking**                 | Natural temporal units                          |
+| **EPUB (.epub)**                            | E-books                      | **Chapter + Section Chunking**          | Preserve book hierarchy                         |
+| **RTF (.rtf)**                              | Rich text                    | **Recursive + Header Chunking**         | Maintain formatting cues                        |
+| **ODT (.odt)**                              | OpenOffice docs              | **Header + Parent-Child**               | Similar to DOCX                                 |
+| **ODS (.ods)**                              | OpenOffice sheets            | **Record-Based Chunking**               | Similar to XLSX                                 |
+| **ZIP (.zip)**                              | Archives                     | **Extract → Chunk by file type**        | Treat contents individually                     |
+
+## Best OCR Solutions for Any Invoice Format (2026)
+
+| Tool                                    | Best For                    | Strengths                                               | Weaknesses                               |
+| --------------------------------------- | --------------------------- | ------------------------------------------------------- | ---------------------------------------- |
+| **Google Document AI (Invoice Parser)** | Highest overall accuracy    | Excellent invoice understanding, prebuilt invoice model | GCP dependency                           |
+| **Amazon Textract (AnalyzeExpense)**    | AWS environments            | Strong line-item extraction, easy AWS integration       | Less flexible customization              |
+| **Azure AI Document Intelligence**      | Microsoft shops             | Strong invoice models and custom training               | Azure dependency                         |
+| **ABBYY Vantage**                       | Large enterprises           | Very high accuracy, multilingual support                | Expensive                                |
+| **Rossum**                              | Accounts Payable automation | Designed specifically for invoices                      | Specialized use case                     |
+| **Nanonets**                            | Mid-sized businesses        | Easy to train custom models                             | SaaS only                                |
+| **Docsumo**                             | Finance teams               | Fast deployment                                         | Less customizable                        |
+| **Tesseract OCR**                       | Open source                 | Free and self-hosted                                    | Not suitable for diverse invoice layouts |
 
 
